@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37490bc4-1b6b-4c2e-a571-01222431328b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6968/ERPAsientos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ERPAsientos.wsdl" MetadataType="Wsdl" ID="20861b59-5c9b-4dec-853b-a1c768d0862d" SourceId="1" SourceUrl="http://localhost:6968/ERPAsientos.svc?wsdl" />
+    <MetadataFile FileName="ERPAsientos.xsd" MetadataType="Schema" ID="513d68be-4ad6-475f-9fed-d20e2abee971" SourceId="1" SourceUrl="http://localhost:6968/ERPAsientos.svc?xsd=xsd0" />
+    <MetadataFile FileName="ERPAsientos.disco" MetadataType="Disco" ID="da1e36f1-99a7-49af-b5a8-0ba012c8a279" SourceId="1" SourceUrl="http://localhost:6968/ERPAsientos.svc?disco" />
+    <MetadataFile FileName="ERPAsientos1.xsd" MetadataType="Schema" ID="6684e2df-e047-4c00-bb7b-3d2c7aca1a22" SourceId="1" SourceUrl="http://localhost:6968/ERPAsientos.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

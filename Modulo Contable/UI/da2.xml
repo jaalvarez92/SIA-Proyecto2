@@ -1,0 +1,75 @@
+<DA>
+  <StoredProcedure Name="autenticar_usuario" SP="SP_AUTENTICAR_USUARIO" ReturnData="True">
+    <Parameter Name="pNombreUsuario" Type="input"/>
+	<Parameter Name="pContrasena" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="crear_cuenta" SP="SP_CREAR_CUENTA" ReturnData="FALSE">
+    <Parameter Name="pCodigo" Type="input"/>
+	<Parameter Name="pNombre" Type="input"/>
+	<Parameter Name="pNombreExtranjero" Type="input"/>
+	<Parameter Name="pEsTitulo" Type="input"/>
+	<Parameter Name="pIdTipoCuenta" Type="input"/>
+	<Parameter Name="pIdCuentaPadre" Type="input"/>
+	<Parameter Name="pIdMoneda" Type="input"/>
+	<Parameter Name="pIdCatalogoContable" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="crear_empresa" SP="SP_CREAR_EMPRESA" ReturnData="FALSE">
+    <Parameter Name="pNombre" Type="input"/>
+	<Parameter Name="pEsquema" Type="input"/>
+	<Parameter Name="pCedulaJuridica" Type="input"/>
+	<Parameter Name="pLogotipo" Type="input"/>
+	<Parameter Name="pMonedaLocal" Type="input"/>
+	<Parameter Name="pMonedaSistema" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="crear_periodo_contable" SP="SP_CREAR_PERIODO_CONTABLE" ReturnData="True">
+	<Parameter Name="pFechaInicioC" Type="input"/>
+	<Parameter Name="pFechaFinC" Type="input"/>
+	<Parameter Name="pFechaInicioD" Type="input"/>
+	<Parameter Name="pFechaFinD" Type="input"/>
+	<Parameter Name="pFechaInicioV" Type="input"/>
+	<Parameter Name="pFechaFinV" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="consultar_asiento" SP="dbo.SP_CONSULTAR_ASIENTO" ReturnData="TRUE">
+		<Parameter Name="p_Fecha_inicio" Type="input"/>
+		<Parameter Name="p_Fecha_fin" Type="input"/>
+	</StoredProcedure>
+  
+  <StoredProcedure Name="ingresar_tipo_cambio" SP="SP_INGRESAR_TIPO_CAMBIO" ReturnData="FALSE">
+	<Parameter Name="pIdMonedaBase" Type="input"/>
+	<Parameter Name="pIdMonedaCambio" Type="input"/>
+	<Parameter Name="pValor" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_catalogo_contable" SP="SP_OBTENER_CATALOGO_CONTABLE" ReturnData="True">
+	<Parameter Name="pIdEmpresa" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_cuentas" SP="SP_OBTENER_CUENTAS" ReturnData="True">
+	<Parameter Name="pIdCatalogoContable" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_empresas_grupo" SP="SP_OBTENER_EMPRESAS_GRUPO" ReturnData="True">
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_empresa_grupo" SP="SP_OBTENER_EMPRESA" ReturnData="True">
+	<Parameter Name="pIdEmpresa" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_monedas" SP="SP_OBTENER_MONEDAS" ReturnData="True">
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_tipo_cambio" SP="SP_OBTENER_TIPO_CAMBIO" ReturnData="True">
+	<Parameter Name="pMonedaBase" Type="input"/>
+	<Parameter Name="pMonedaCambio" Type="input"/>
+	<Parameter Name="pFecha" Type="input"/>
+  </StoredProcedure>
+  
+  <StoredProcedure Name="obtener_tipos_cuenta" SP="SP_OBTENER_TIPOS_CUENTA" ReturnData="True">
+  </StoredProcedure>
+  
+  
+</DA>
