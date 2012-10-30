@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labNombreEmpresa = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonFinanzas = new System.Windows.Forms.Button();
             this.buttonVentas = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
@@ -119,6 +120,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.buttonClientes);
             this.groupBox2.Controls.Add(this.buttonFinanzas);
             this.groupBox2.Controls.Add(this.buttonVentas);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,6 +132,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Módulos";
             // 
+            // buttonClientes
+            // 
+            this.buttonClientes.AccessibleName = "";
+            this.buttonClientes.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClientes.ForeColor = System.Drawing.Color.White;
+            this.buttonClientes.Image = global::UI.Properties.Resources.book_add;
+            this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClientes.Location = new System.Drawing.Point(22, 119);
+            this.buttonClientes.Name = "buttonClientes";
+            this.buttonClientes.Size = new System.Drawing.Size(204, 34);
+            this.buttonClientes.TabIndex = 14;
+            this.buttonClientes.Text = "Clientes y Proveedores";
+            this.buttonClientes.UseVisualStyleBackColor = false;
+            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
+            // 
             // buttonFinanzas
             // 
             this.buttonFinanzas.AccessibleName = "";
@@ -138,9 +156,9 @@
             this.buttonFinanzas.ForeColor = System.Drawing.Color.White;
             this.buttonFinanzas.Image = global::UI.Properties.Resources.book_add;
             this.buttonFinanzas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFinanzas.Location = new System.Drawing.Point(28, 39);
+            this.buttonFinanzas.Location = new System.Drawing.Point(22, 39);
             this.buttonFinanzas.Name = "buttonFinanzas";
-            this.buttonFinanzas.Size = new System.Drawing.Size(190, 34);
+            this.buttonFinanzas.Size = new System.Drawing.Size(204, 34);
             this.buttonFinanzas.TabIndex = 0;
             this.buttonFinanzas.Text = "Finanzas";
             this.buttonFinanzas.UseVisualStyleBackColor = false;
@@ -153,9 +171,9 @@
             this.buttonVentas.ForeColor = System.Drawing.Color.White;
             this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
             this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.Location = new System.Drawing.Point(28, 137);
+            this.buttonVentas.Location = new System.Drawing.Point(22, 79);
             this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Size = new System.Drawing.Size(190, 34);
+            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
             this.buttonVentas.TabIndex = 5;
             this.buttonVentas.Text = "Ventas";
             this.buttonVentas.UseVisualStyleBackColor = false;
@@ -220,5 +238,6 @@
         private System.Windows.Forms.Button buttonVentas;
         private System.Windows.Forms.Button buttonCerrarSesion;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonClientes;
     }
 }

@@ -58,6 +58,18 @@
     <Compile Include="MenuModulos.Designer.cs">
       <DependentUpon>MenuModulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuloClientes\AgregarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloClientes\AgregarSocio.Designer.cs">
+      <DependentUpon>AgregarSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloClientes\MenuModuloClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloClientes\MenuModuloClientes.Designer.cs">
+      <DependentUpon>MenuModuloClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuloContabilidad\ActualizarTipoCambio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     </Compile>
     <EmbeddedResource Include="MenuModulos.resx">
       <DependentUpon>MenuModulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloClientes\AgregarSocio.resx">
+      <DependentUpon>AgregarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloClientes\MenuModuloClientes.resx">
+      <DependentUpon>MenuModuloClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloContabilidad\ActualizarTipoCambio.resx">
       <DependentUpon>ActualizarTipoCambio.cs</DependentUpon>
@@ -292,6 +310,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModuloVentas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

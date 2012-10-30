@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class MenuModuloFinanciero
+    partial class MenuModuloClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAsientos = new System.Windows.Forms.Button();
-            this.buttonEmpresa = new System.Windows.Forms.Button();
-            this.buttonReportes = new System.Windows.Forms.Button();
             this.buttonAtras = new System.Windows.Forms.Button();
-            this.buttonCierre = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonAgregarPeriodoContable = new System.Windows.Forms.Button();
             this.labNombreEmpresa = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,55 +38,10 @@
             this.labCedJuridica = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonCrearCuenta = new System.Windows.Forms.Button();
+            this.buttonAgregarSocio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonAsientos
-            // 
-            this.buttonAsientos.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonAsientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAsientos.ForeColor = System.Drawing.Color.White;
-            this.buttonAsientos.Image = global::UI.Properties.Resources.application;
-            this.buttonAsientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAsientos.Location = new System.Drawing.Point(210, 39);
-            this.buttonAsientos.Name = "buttonAsientos";
-            this.buttonAsientos.Size = new System.Drawing.Size(191, 34);
-            this.buttonAsientos.TabIndex = 1;
-            this.buttonAsientos.Text = "Crear Asientos";
-            this.buttonAsientos.UseVisualStyleBackColor = false;
-            this.buttonAsientos.Click += new System.EventHandler(this.buttonAsientos_Click);
-            // 
-            // buttonEmpresa
-            // 
-            this.buttonEmpresa.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEmpresa.ForeColor = System.Drawing.Color.White;
-            this.buttonEmpresa.Image = global::UI.Properties.Resources.computer_add;
-            this.buttonEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEmpresa.Location = new System.Drawing.Point(14, 79);
-            this.buttonEmpresa.Name = "buttonEmpresa";
-            this.buttonEmpresa.Size = new System.Drawing.Size(190, 34);
-            this.buttonEmpresa.TabIndex = 2;
-            this.buttonEmpresa.Text = "Crear Empresa";
-            this.buttonEmpresa.UseVisualStyleBackColor = false;
-            this.buttonEmpresa.Click += new System.EventHandler(this.buttonEmpresa_Click);
-            // 
-            // buttonReportes
-            // 
-            this.buttonReportes.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReportes.ForeColor = System.Drawing.Color.White;
-            this.buttonReportes.Image = global::UI.Properties.Resources.application_cascade;
-            this.buttonReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReportes.Location = new System.Drawing.Point(210, 79);
-            this.buttonReportes.Name = "buttonReportes";
-            this.buttonReportes.Size = new System.Drawing.Size(191, 34);
-            this.buttonReportes.TabIndex = 3;
-            this.buttonReportes.Text = "Reportes y Consultas";
-            this.buttonReportes.UseVisualStyleBackColor = false;
-            this.buttonReportes.Click += new System.EventHandler(this.buttonReportes_Click);
             // 
             // buttonAtras
             // 
@@ -108,21 +58,6 @@
             this.buttonAtras.UseVisualStyleBackColor = false;
             this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
             // 
-            // buttonCierre
-            // 
-            this.buttonCierre.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCierre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCierre.ForeColor = System.Drawing.Color.White;
-            this.buttonCierre.Image = global::UI.Properties.Resources.calculator_edit;
-            this.buttonCierre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCierre.Location = new System.Drawing.Point(14, 119);
-            this.buttonCierre.Name = "buttonCierre";
-            this.buttonCierre.Size = new System.Drawing.Size(190, 34);
-            this.buttonCierre.TabIndex = 5;
-            this.buttonCierre.Text = "Realizar Cierre";
-            this.buttonCierre.UseVisualStyleBackColor = false;
-            this.buttonCierre.Click += new System.EventHandler(this.buttonCierre_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -134,21 +69,6 @@
             this.label1.Size = new System.Drawing.Size(250, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Menú Módulo Financiero";
-            // 
-            // buttonAgregarPeriodoContable
-            // 
-            this.buttonAgregarPeriodoContable.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonAgregarPeriodoContable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarPeriodoContable.ForeColor = System.Drawing.Color.White;
-            this.buttonAgregarPeriodoContable.Image = global::UI.Properties.Resources.clock_add;
-            this.buttonAgregarPeriodoContable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarPeriodoContable.Location = new System.Drawing.Point(210, 119);
-            this.buttonAgregarPeriodoContable.Name = "buttonAgregarPeriodoContable";
-            this.buttonAgregarPeriodoContable.Size = new System.Drawing.Size(191, 34);
-            this.buttonAgregarPeriodoContable.TabIndex = 7;
-            this.buttonAgregarPeriodoContable.Text = "Agregar Periodo Contable";
-            this.buttonAgregarPeriodoContable.UseVisualStyleBackColor = false;
-            this.buttonAgregarPeriodoContable.Click += new System.EventHandler(this.buttonAgregarPeriodoContable_Click);
             // 
             // labNombreEmpresa
             // 
@@ -225,12 +145,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.buttonCrearCuenta);
-            this.groupBox2.Controls.Add(this.buttonEmpresa);
-            this.groupBox2.Controls.Add(this.buttonAgregarPeriodoContable);
-            this.groupBox2.Controls.Add(this.buttonCierre);
-            this.groupBox2.Controls.Add(this.buttonAsientos);
-            this.groupBox2.Controls.Add(this.buttonReportes);
+            this.groupBox2.Controls.Add(this.buttonAgregarSocio);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(223, 79);
@@ -240,22 +155,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
             // 
-            // buttonCrearCuenta
+            // buttonAgregarSocio
             // 
-            this.buttonCrearCuenta.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCrearCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCrearCuenta.ForeColor = System.Drawing.Color.White;
-            this.buttonCrearCuenta.Image = global::UI.Properties.Resources.computer_add;
-            this.buttonCrearCuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCrearCuenta.Location = new System.Drawing.Point(14, 39);
-            this.buttonCrearCuenta.Name = "buttonCrearCuenta";
-            this.buttonCrearCuenta.Size = new System.Drawing.Size(190, 34);
-            this.buttonCrearCuenta.TabIndex = 8;
-            this.buttonCrearCuenta.Text = "Crear Empresa";
-            this.buttonCrearCuenta.UseVisualStyleBackColor = false;
-            this.buttonCrearCuenta.Click += new System.EventHandler(this.buttonCuentas_Click);
+            this.buttonAgregarSocio.AccessibleName = "";
+            this.buttonAgregarSocio.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAgregarSocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarSocio.ForeColor = System.Drawing.Color.White;
+            this.buttonAgregarSocio.Image = global::UI.Properties.Resources.book_add;
+            this.buttonAgregarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarSocio.Location = new System.Drawing.Point(16, 21);
+            this.buttonAgregarSocio.Name = "buttonAgregarSocio";
+            this.buttonAgregarSocio.Size = new System.Drawing.Size(155, 34);
+            this.buttonAgregarSocio.TabIndex = 1;
+            this.buttonAgregarSocio.Text = "Agregar Socio";
+            this.buttonAgregarSocio.UseVisualStyleBackColor = false;
+            this.buttonAgregarSocio.Click += new System.EventHandler(this.buttonAgregarSocio_Click);
             // 
-            // MenuModuloFinanciero
+            // MenuModuloClientes
             // 
             this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,9 +186,9 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(669, 433);
             this.MinimumSize = new System.Drawing.Size(669, 433);
-            this.Name = "MenuModuloFinanciero";
+            this.Name = "MenuModuloClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menú Módulo Financiero";
+            this.Text = "Menú Módulo Clientes";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -283,14 +199,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCuentas;
-        private System.Windows.Forms.Button buttonAsientos;
-        private System.Windows.Forms.Button buttonEmpresa;
-        private System.Windows.Forms.Button buttonReportes;
         private System.Windows.Forms.Button buttonAtras;
-        private System.Windows.Forms.Button buttonCierre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAgregarPeriodoContable;
         public System.Windows.Forms.Label labNombreEmpresa;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
@@ -299,6 +209,6 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button buttonCrearCuenta;
+        private System.Windows.Forms.Button buttonAgregarSocio;
     }
 }

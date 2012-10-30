@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
+    <Compile Include="ModuloClientes\SociosDA.cs" />
     <Compile Include="ModuloContabilidad\AsientoDA.cs" />
     <Compile Include="ModuloContabilidad\CuentaDA.cs" />
     <Compile Include="GrupoDA.cs" />

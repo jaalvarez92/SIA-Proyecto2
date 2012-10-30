@@ -29,6 +29,16 @@ namespace UI
             this.Hide();
         }
 
+        private void buttonClientes_Click(object sender, EventArgs e)
+        {
+            MenuModuloClientes _Menu = new MenuModuloClientes();
+            _Menu.labNombreEmpresa.Text = this.labNombreEmpresa.Text;
+            _Menu.labCedJuridica.Text = this.labCedJuridica.Text;
+            _Menu.label5.Text = this.label5.Text;
+            _Menu.Show(this);
+            this.Hide();
+        }
+
         private void buttonCerrarSesion_Click(object sender, EventArgs e)
         {
             ((Login)this.Owner).LLenarComboBoxEmpresas();
@@ -37,5 +47,7 @@ namespace UI
             this.Close();
         }
         #endregion
+
+        
     }
 }
