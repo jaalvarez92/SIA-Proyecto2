@@ -45,13 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
-    <Compile Include="AsientoDA.cs" />
-    <Compile Include="CuentaDA.cs" />
+    <Compile Include="ModuloContabilidad\AsientoDA.cs" />
+    <Compile Include="ModuloContabilidad\CuentaDA.cs" />
     <Compile Include="GrupoDA.cs" />
     <Compile Include="ManejadorBaseDatos.cs" />
-    <Compile Include="MonedaDA.cs" />
+    <Compile Include="ModuloContabilidad\MonedaDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoCambioDA.cs" />
+    <Compile Include="ModuloContabilidad\TipoCambioDA.cs" />
     <Compile Include="UsuarioDA.cs" />
     <Compile Include="XMLLoader.cs" />
   </ItemGroup>

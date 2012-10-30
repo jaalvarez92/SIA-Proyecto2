@@ -15,19 +15,22 @@ namespace UI
 
     public partial class Login : Form
     {
+        #region Atributos
         private String _TituloMessageBox = "No se pudo ingresar";
         private String _MensajeErrorI = "Debe digitar todos los campos para poder ingresar";
         private String _MensajeErrorII = "El nombre de usuario o contraseña son incorrectos.";
         private Entities _Empresas;
+        #endregion
 
+        #region Constructor
         public Login()
         {
             InitializeComponent();
             LLenarComboBoxEmpresas();
         }
+        #endregion
 
-
-
+        #region Propiedades
         public String NombreUsuario
         {
             get { return textBoxUsuario.Text; }
@@ -47,8 +50,9 @@ namespace UI
             get { return comboBoxEmpresa.Text; }
             set { comboBoxEmpresa.Text = value; }
         }
+        #endregion 
 
-
+        #region Métodos
         public void LLenarComboBoxEmpresas()
         {
             try
@@ -67,30 +71,6 @@ namespace UI
             }
         }
 
-        private void botonIngresar_Click(object sender, EventArgs e)
-        {
-            if (verificaCampos())
-            {
-                String empresa = comboBoxEmpresa.SelectedItem + "";
-
-                if (UsuarioLogica.LogIn(NombreUsuario, Contrasena))
-                {
-                    MenuPrincipal _Menu = new MenuPrincipal();
-                    Entity empresa_seleccionada = _Empresas.Get("nombreempresa", NombreEmpresa);
-                    ConfigurationManager.AppSettings.Set("Empresa", ((int)empresa_seleccionada.Get("idempresa")).ToString());
-                    _Menu.labNombreEmpresa.Text = comboBoxEmpresa.Text;
-                    _Menu.Show(this);
-                    this.Hide();
-                }
-                else
-                {
-                    MuestraMensaje(_MensajeErrorII, _TituloMessageBox);
-                }
-                NombreUsuario="";
-                Contrasena="";
-                NombreEmpresa = "";
-            }
-        }
 
 
         private Boolean verificaCampos()
@@ -111,6 +91,39 @@ namespace UI
             var result = MessageBox.Show(titulo, mensaje);
         }
 
+        #endregion
+
+        #region Eventos
+        private void botonIngresar_Click(object sender, EventArgs e)
+        {
+            if (verificaCampos())
+            {
+                String empresa = comboBoxEmpresa.SelectedItem + "";
+
+                if (UsuarioLogica.LogIn(NombreUsuario, Contrasena))
+                {
+                    MenuModulos _Menu = new MenuModulos();
+                    Entity empresa_seleccionada = _Empresas.Get("nombreempresa", NombreEmpresa);
+                    ConfigurationManager.AppSettings.Set("Empresa", ((int)empresa_seleccionada.Get("idempresa")).ToString());
+                    Entity grupo = GrupoLogica.ObtenerInformacionEmpresa();
+                    _Menu.labNombreEmpresa.Text = comboBoxEmpresa.Text;
+                    _Menu.labCedJuridica.Text = grupo.Get("cedula_juridica").ToString();
+                    _Menu.label5.Text = grupo.Get("idempresa").ToString();
+                    _Menu.Show(this);
+                    this.Hide();
+                }
+                else
+                {
+                    MuestraMensaje(_MensajeErrorII, _TituloMessageBox);
+                }
+                NombreUsuario="";
+                Contrasena="";
+                NombreEmpresa = "";
+            }
+        }
+
+
+
         private void comboBoxEmpresa_SelectedValueChanged(object sender, EventArgs e)
         {
             String empresa = comboBoxEmpresa.SelectedItem + "";
@@ -123,6 +136,7 @@ namespace UI
         {
             Application.Exit();
         }
-       
+        #endregion
+
     }
 }

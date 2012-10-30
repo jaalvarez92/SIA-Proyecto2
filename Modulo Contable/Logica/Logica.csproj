@@ -41,11 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDLogica.cs" />
-    <Compile Include="AsientoLogica.cs" />
-    <Compile Include="CuentaLogica.cs" />
+    <Compile Include="ModuloContabilidad\AsientoLogica.cs" />
+    <Compile Include="ModuloContabilidad\CuentaLogica.cs" />
     <Compile Include="GrupoLogica.cs" />
-    <Compile Include="MonedaLogica.cs" />
-    <Compile Include="TipoCambioLogica.cs" />
+    <Compile Include="ModuloContabilidad\MonedaLogica.cs" />
+    <Compile Include="ModuloContabilidad\TipoCambioLogica.cs" />
     <Compile Include="UsuarioLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

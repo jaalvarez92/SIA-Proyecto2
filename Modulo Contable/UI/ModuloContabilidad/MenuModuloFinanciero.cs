@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuModuloFinanciero : Form
     {
         #region Constructor
-        public MenuPrincipal()
+        public MenuModuloFinanciero()
         {
             InitializeComponent();
         }
@@ -30,9 +30,8 @@ namespace UI
 
         }
 
-        private void buttonCerrarSesion_Click(object sender, EventArgs e)
+        private void buttonAtras_Click(object sender, EventArgs e)
         {
-            ((Login)this.Owner).LLenarComboBoxEmpresas();
             this.Owner.Show();
             this.Owner.Refresh();
             this.Close();

@@ -52,34 +52,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActualizarTipoCambio.cs">
+    <Compile Include="MenuModulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActualizarTipoCambio.Designer.cs">
+    <Compile Include="MenuModulos.Designer.cs">
+      <DependentUpon>MenuModulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloContabilidad\ActualizarTipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloContabilidad\ActualizarTipoCambio.Designer.cs">
       <DependentUpon>ActualizarTipoCambio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion.cs">
+    <Compile Include="ModuloContabilidad\Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion.Designer.cs">
+    <Compile Include="ModuloContabilidad\Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearAsiento.cs">
+    <Compile Include="ModuloContabilidad\CrearAsiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearAsiento.Designer.cs">
+    <Compile Include="ModuloContabilidad\CrearAsiento.Designer.cs">
       <DependentUpon>CrearAsiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearCuenta.cs">
+    <Compile Include="ModuloContabilidad\CrearCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearCuenta.Designer.cs">
+    <Compile Include="ModuloContabilidad\CrearCuenta.Designer.cs">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearEmpresa.cs">
+    <Compile Include="ModuloContabilidad\CrearEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearEmpresa.Designer.cs">
+    <Compile Include="ModuloContabilidad\CrearEmpresa.Designer.cs">
       <DependentUpon>CrearEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -88,24 +94,18 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="ModuloContabilidad\MenuModuloFinanciero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RealizarCierre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RealizarCierre.Designer.cs">
-      <DependentUpon>RealizarCierre.cs</DependentUpon>
+    <Compile Include="ModuloContabilidad\MenuModuloFinanciero.Designer.cs">
+      <DependentUpon>MenuModuloFinanciero.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes.cs">
+    <Compile Include="ModuloContabilidad\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes.Designer.cs">
+    <Compile Include="ModuloContabilidad\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Service References\ERPAsientos\Reference.cs">
@@ -113,32 +113,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="VisualizarAsientos.cs">
+    <Compile Include="ModuloContabilidad\VisualizarAsientos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisualizarAsientos.designer.cs">
+    <Compile Include="ModuloContabilidad\VisualizarAsientos.designer.cs">
       <DependentUpon>VisualizarAsientos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ActualizarTipoCambio.resx">
+    <EmbeddedResource Include="MenuModulos.resx">
+      <DependentUpon>MenuModulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloContabilidad\ActualizarTipoCambio.resx">
       <DependentUpon>ActualizarTipoCambio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion.resx">
+    <EmbeddedResource Include="ModuloContabilidad\Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearAsiento.resx">
+    <EmbeddedResource Include="ModuloContabilidad\CrearAsiento.resx">
       <DependentUpon>CrearAsiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearCuenta.resx">
+    <EmbeddedResource Include="ModuloContabilidad\CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearEmpresa.resx">
+    <EmbeddedResource Include="ModuloContabilidad\CrearEmpresa.resx">
       <DependentUpon>CrearEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="ModuloContabilidad\MenuModuloFinanciero.resx">
+      <DependentUpon>MenuModuloFinanciero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,13 +153,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RealizarCierre.resx">
-      <DependentUpon>RealizarCierre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes.resx">
+    <EmbeddedResource Include="ModuloContabilidad\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisualizarAsientos.resx">
+    <EmbeddedResource Include="ModuloContabilidad\VisualizarAsientos.resx">
       <DependentUpon>VisualizarAsientos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">

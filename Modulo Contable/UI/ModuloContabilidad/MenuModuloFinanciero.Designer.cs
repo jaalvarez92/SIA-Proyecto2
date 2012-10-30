@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class MenuPrincipal
+    partial class MenuModuloFinanciero
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.buttonAsientos = new System.Windows.Forms.Button();
             this.buttonEmpresa = new System.Windows.Forms.Button();
             this.buttonReportes = new System.Windows.Forms.Button();
-            this.buttonCerrarSesion = new System.Windows.Forms.Button();
+            this.buttonAtras = new System.Windows.Forms.Button();
             this.buttonCierre = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonAgregarPeriodoContable = new System.Windows.Forms.Button();
@@ -109,20 +109,20 @@
             this.buttonReportes.UseVisualStyleBackColor = false;
             this.buttonReportes.Click += new System.EventHandler(this.buttonReportes_Click);
             // 
-            // buttonCerrarSesion
+            // buttonAtras
             // 
-            this.buttonCerrarSesion.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.buttonCerrarSesion.Image = global::UI.Properties.Resources.bullet_go;
-            this.buttonCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCerrarSesion.Location = new System.Drawing.Point(495, 343);
-            this.buttonCerrarSesion.Name = "buttonCerrarSesion";
-            this.buttonCerrarSesion.Size = new System.Drawing.Size(146, 27);
-            this.buttonCerrarSesion.TabIndex = 4;
-            this.buttonCerrarSesion.Text = "Cerrar Sesión";
-            this.buttonCerrarSesion.UseVisualStyleBackColor = false;
-            this.buttonCerrarSesion.Click += new System.EventHandler(this.buttonCerrarSesion_Click);
+            this.buttonAtras.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtras.ForeColor = System.Drawing.Color.White;
+            this.buttonAtras.Image = global::UI.Properties.Resources.bullet_go;
+            this.buttonAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAtras.Location = new System.Drawing.Point(495, 343);
+            this.buttonAtras.Name = "buttonAtras";
+            this.buttonAtras.Size = new System.Drawing.Size(146, 27);
+            this.buttonAtras.TabIndex = 4;
+            this.buttonAtras.Text = "Atrás";
+            this.buttonAtras.UseVisualStyleBackColor = false;
+            this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
             // 
             // buttonCierre
             // 
@@ -145,11 +145,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.5F);
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(218, 9);
+            this.label1.Location = new System.Drawing.Point(193, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 25);
+            this.label1.Size = new System.Drawing.Size(250, 25);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Menú Principal";
+            this.label1.Text = "Menú Módulo Financiero";
             // 
             // buttonAgregarPeriodoContable
             // 
@@ -256,9 +256,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
             // 
-            // MenuPrincipal
+            // MenuModuloFinanciero
             // 
-            this.AccessibleName = "buttonCuentas";
+            this.AccessibleName = "";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -267,13 +267,13 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonCerrarSesion);
+            this.Controls.Add(this.buttonAtras);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(669, 433);
             this.MinimumSize = new System.Drawing.Size(669, 433);
-            this.Name = "MenuPrincipal";
+            this.Name = "MenuModuloFinanciero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal";
+            this.Text = "Menú Módulo Financiero";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Button buttonAsientos;
         private System.Windows.Forms.Button buttonEmpresa;
         private System.Windows.Forms.Button buttonReportes;
-        private System.Windows.Forms.Button buttonCerrarSesion;
+        private System.Windows.Forms.Button buttonAtras;
         private System.Windows.Forms.Button buttonCierre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonAgregarPeriodoContable;
