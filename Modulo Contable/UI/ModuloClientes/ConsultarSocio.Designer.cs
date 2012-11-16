@@ -35,17 +35,17 @@
             this.CLodigo = new System.Windows.Forms.Label();
             this.buttonConsultar = new System.Windows.Forms.Button();
             this.groupBoxDatos = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelNombre = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelSaldo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewDcoumentos = new System.Windows.Forms.DataGridView();
-            this.buttonVolver = new System.Windows.Forms.Button();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Consultar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelSaldo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonVolver = new System.Windows.Forms.Button();
             this.groupBoxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDcoumentos)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             this.buttonConsultar.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConsultar.ForeColor = System.Drawing.Color.White;
-            this.buttonConsultar.Image = global::UI.Properties.Resources.computer_add;
+            this.buttonConsultar.Image = global::UI.Properties.Resources.magnifier;
             this.buttonConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConsultar.Location = new System.Drawing.Point(12, 187);
             this.buttonConsultar.Name = "buttonConsultar";
@@ -100,51 +100,6 @@
             this.groupBoxDatos.TabStop = false;
             this.groupBoxDatos.Text = "Datos del Socio";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre:";
-            // 
-            // labelNombre
-            // 
-            this.labelNombre.AutoSize = true;
-            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(116, 32);
-            this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(0, 25);
-            this.labelNombre.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Saldo:";
-            // 
-            // labelSaldo
-            // 
-            this.labelSaldo.AutoSize = true;
-            this.labelSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldo.Location = new System.Drawing.Point(116, 90);
-            this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(0, 25);
-            this.labelSaldo.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Documentos Pendientes: ";
-            // 
             // dataGridViewDcoumentos
             // 
             this.dataGridViewDcoumentos.AllowUserToAddRows = false;
@@ -162,21 +117,6 @@
             this.dataGridViewDcoumentos.RowHeadersVisible = false;
             this.dataGridViewDcoumentos.Size = new System.Drawing.Size(406, 219);
             this.dataGridViewDcoumentos.TabIndex = 6;
-            // 
-            // buttonVolver
-            // 
-            this.buttonVolver.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVolver.ForeColor = System.Drawing.Color.White;
-            this.buttonVolver.Image = global::UI.Properties.Resources.computer_add;
-            this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVolver.Location = new System.Drawing.Point(498, 435);
-            this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(136, 34);
-            this.buttonVolver.TabIndex = 7;
-            this.buttonVolver.Text = "Volver";
-            this.buttonVolver.UseVisualStyleBackColor = false;
-            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
             // Fecha
             // 
@@ -206,6 +146,66 @@
             // 
             this.Consultar.HeaderText = "Consultar";
             this.Consultar.Name = "Consultar";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Documentos Pendientes: ";
+            // 
+            // labelSaldo
+            // 
+            this.labelSaldo.AutoSize = true;
+            this.labelSaldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldo.Location = new System.Drawing.Point(116, 90);
+            this.labelSaldo.Name = "labelSaldo";
+            this.labelSaldo.Size = new System.Drawing.Size(0, 25);
+            this.labelSaldo.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Saldo:";
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombre.Location = new System.Drawing.Point(116, 32);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(0, 25);
+            this.labelNombre.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre:";
+            // 
+            // buttonVolver
+            // 
+            this.buttonVolver.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVolver.ForeColor = System.Drawing.Color.White;
+            this.buttonVolver.Image = global::UI.Properties.Resources.arrow_left;
+            this.buttonVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVolver.Location = new System.Drawing.Point(498, 435);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(136, 34);
+            this.buttonVolver.TabIndex = 7;
+            this.buttonVolver.Text = "Volver";
+            this.buttonVolver.UseVisualStyleBackColor = false;
+            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
             // ConsultarSocio
             // 

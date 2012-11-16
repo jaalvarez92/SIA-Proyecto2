@@ -321,6 +321,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ModuloAdministrativo\" />
+    <Folder Include="ModuloCompras\" />
+    <Folder Include="ModuloInventario\" />
     <Folder Include="ModuloVentas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

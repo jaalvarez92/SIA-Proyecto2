@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAtras = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,37 +36,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxCuenta = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAtras = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // buttonAtras
-            // 
-            this.buttonAtras.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAtras.ForeColor = System.Drawing.Color.White;
-            this.buttonAtras.Image = global::UI.Properties.Resources.computer_add;
-            this.buttonAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAtras.Location = new System.Drawing.Point(290, 343);
-            this.buttonAtras.Name = "buttonAtras";
-            this.buttonAtras.Size = new System.Drawing.Size(136, 34);
-            this.buttonAtras.TabIndex = 3;
-            this.buttonAtras.Text = "Atrás";
-            this.buttonAtras.UseVisualStyleBackColor = false;
-            this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::UI.Properties.Resources.computer_add;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(138, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 34);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxNombre
             // 
@@ -80,6 +51,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(119, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
@@ -89,6 +62,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(119, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
@@ -107,12 +82,14 @@
             this.comboBoxTipo.FormattingEnabled = true;
             this.comboBoxTipo.Location = new System.Drawing.Point(113, 194);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipo.Size = new System.Drawing.Size(247, 21);
             this.comboBoxTipo.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(119, 178);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
@@ -122,6 +99,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(119, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
@@ -133,14 +112,58 @@
             this.comboBoxCuenta.FormattingEnabled = true;
             this.comboBoxCuenta.Location = new System.Drawing.Point(113, 258);
             this.comboBoxCuenta.Name = "comboBoxCuenta";
-            this.comboBoxCuenta.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCuenta.Size = new System.Drawing.Size(247, 21);
             this.comboBoxCuenta.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::UI.Properties.Resources.computer_add;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(138, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 34);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonAtras
+            // 
+            this.buttonAtras.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAtras.ForeColor = System.Drawing.Color.White;
+            this.buttonAtras.Image = global::UI.Properties.Resources.arrow_left;
+            this.buttonAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAtras.Location = new System.Drawing.Point(290, 343);
+            this.buttonAtras.Name = "buttonAtras";
+            this.buttonAtras.Size = new System.Drawing.Size(136, 34);
+            this.buttonAtras.TabIndex = 3;
+            this.buttonAtras.Text = "Atrás";
+            this.buttonAtras.UseVisualStyleBackColor = false;
+            this.buttonAtras.Click += new System.EventHandler(this.buttonAtras_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.5F);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(204, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 25);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Agregar Socio";
             // 
             // AgregarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::UI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(548, 389);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxCuenta);
             this.Controls.Add(this.label3);
@@ -170,5 +193,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxCuenta;
+        private System.Windows.Forms.Label label5;
     }
 }

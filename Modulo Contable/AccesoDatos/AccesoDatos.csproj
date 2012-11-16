@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
-    <Compile Include="ModuloClientes\SociosDA.cs" />
+    <Compile Include="ModuloClientes\SocioDA.cs" />
     <Compile Include="ModuloContabilidad\AsientoDA.cs" />
     <Compile Include="ModuloContabilidad\CuentaDA.cs" />
     <Compile Include="GrupoDA.cs" />
@@ -66,6 +66,11 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MduloInventario\" />
+    <Folder Include="ModuloAdministrativo\" />
+    <Folder Include="ModuloCompras\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

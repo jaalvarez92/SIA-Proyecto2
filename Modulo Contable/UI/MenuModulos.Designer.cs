@@ -38,9 +38,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonFinanzas = new System.Windows.Forms.Button();
-            this.buttonVentas = new System.Windows.Forms.Button();
+            this.buttonCompras = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonVentas = new System.Windows.Forms.Button();
+            this.buttonInventario = new System.Windows.Forms.Button();
+            this.buttonAdministrativo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +59,9 @@
             this.groupBox1.Controls.Add(this.labNombreEmpresa);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 48);
+            this.groupBox1.Location = new System.Drawing.Point(12, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(190, 201);
+            this.groupBox1.Size = new System.Drawing.Size(177, 159);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la Empresa";
@@ -84,7 +87,7 @@
             // label3
             // 
             this.label3.Image = global::UI.Properties.Resources.book;
-            this.label3.Location = new System.Drawing.Point(6, 136);
+            this.label3.Location = new System.Drawing.Point(6, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 28);
             this.label3.TabIndex = 11;
@@ -93,7 +96,7 @@
             // 
             this.labCedJuridica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labCedJuridica.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labCedJuridica.Location = new System.Drawing.Point(42, 146);
+            this.labCedJuridica.Location = new System.Drawing.Point(42, 116);
             this.labCedJuridica.Name = "labCedJuridica";
             this.labCedJuridica.Size = new System.Drawing.Size(142, 42);
             this.labCedJuridica.TabIndex = 10;
@@ -102,7 +105,7 @@
             // label2
             // 
             this.label2.Image = global::UI.Properties.Resources.computer;
-            this.label2.Location = new System.Drawing.Point(6, 87);
+            this.label2.Location = new System.Drawing.Point(6, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 28);
             this.label2.TabIndex = 9;
@@ -111,7 +114,7 @@
             // 
             this.labNombreEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labNombreEmpresa.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labNombreEmpresa.Location = new System.Drawing.Point(42, 87);
+            this.labNombreEmpresa.Location = new System.Drawing.Point(42, 76);
             this.labNombreEmpresa.Name = "labNombreEmpresa";
             this.labNombreEmpresa.Size = new System.Drawing.Size(142, 42);
             this.labNombreEmpresa.TabIndex = 8;
@@ -120,14 +123,17 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.buttonInventario);
+            this.groupBox2.Controls.Add(this.buttonAdministrativo);
+            this.groupBox2.Controls.Add(this.buttonVentas);
             this.groupBox2.Controls.Add(this.buttonClientes);
             this.groupBox2.Controls.Add(this.buttonFinanzas);
-            this.groupBox2.Controls.Add(this.buttonVentas);
+            this.groupBox2.Controls.Add(this.buttonCompras);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(208, 48);
+            this.groupBox2.Location = new System.Drawing.Point(195, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(246, 201);
+            this.groupBox2.Size = new System.Drawing.Size(434, 159);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Módulos";
@@ -140,7 +146,7 @@
             this.buttonClientes.ForeColor = System.Drawing.Color.White;
             this.buttonClientes.Image = global::UI.Properties.Resources.book_add;
             this.buttonClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClientes.Location = new System.Drawing.Point(22, 119);
+            this.buttonClientes.Location = new System.Drawing.Point(7, 67);
             this.buttonClientes.Name = "buttonClientes";
             this.buttonClientes.Size = new System.Drawing.Size(204, 34);
             this.buttonClientes.TabIndex = 14;
@@ -154,9 +160,9 @@
             this.buttonFinanzas.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonFinanzas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFinanzas.ForeColor = System.Drawing.Color.White;
-            this.buttonFinanzas.Image = global::UI.Properties.Resources.book_add;
+            this.buttonFinanzas.Image = global::UI.Properties.Resources.coins;
             this.buttonFinanzas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFinanzas.Location = new System.Drawing.Point(22, 39);
+            this.buttonFinanzas.Location = new System.Drawing.Point(7, 25);
             this.buttonFinanzas.Name = "buttonFinanzas";
             this.buttonFinanzas.Size = new System.Drawing.Size(204, 34);
             this.buttonFinanzas.TabIndex = 0;
@@ -164,28 +170,28 @@
             this.buttonFinanzas.UseVisualStyleBackColor = false;
             this.buttonFinanzas.Click += new System.EventHandler(this.buttonFinanzas_Click);
             // 
-            // buttonVentas
+            // buttonCompras
             // 
-            this.buttonVentas.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVentas.ForeColor = System.Drawing.Color.White;
-            this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
-            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.Location = new System.Drawing.Point(22, 79);
-            this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
-            this.buttonVentas.TabIndex = 5;
-            this.buttonVentas.Text = "Ventas";
-            this.buttonVentas.UseVisualStyleBackColor = false;
+            this.buttonCompras.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCompras.ForeColor = System.Drawing.Color.White;
+            this.buttonCompras.Image = global::UI.Properties.Resources.calculator_edit;
+            this.buttonCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCompras.Location = new System.Drawing.Point(7, 107);
+            this.buttonCompras.Name = "buttonCompras";
+            this.buttonCompras.Size = new System.Drawing.Size(204, 34);
+            this.buttonCompras.TabIndex = 5;
+            this.buttonCompras.Text = "Compras";
+            this.buttonCompras.UseVisualStyleBackColor = false;
             // 
             // buttonCerrarSesion
             // 
             this.buttonCerrarSesion.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.buttonCerrarSesion.Image = global::UI.Properties.Resources.bullet_go;
+            this.buttonCerrarSesion.Image = global::UI.Properties.Resources.arrow_left;
             this.buttonCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCerrarSesion.Location = new System.Drawing.Point(308, 278);
+            this.buttonCerrarSesion.Location = new System.Drawing.Point(483, 332);
             this.buttonCerrarSesion.Name = "buttonCerrarSesion";
             this.buttonCerrarSesion.Size = new System.Drawing.Size(146, 27);
             this.buttonCerrarSesion.TabIndex = 12;
@@ -199,18 +205,60 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.5F);
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(150, 9);
+            this.label1.Location = new System.Drawing.Point(251, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Menú Principal";
+            // 
+            // buttonVentas
+            // 
+            this.buttonVentas.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVentas.ForeColor = System.Drawing.Color.White;
+            this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
+            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVentas.Location = new System.Drawing.Point(217, 105);
+            this.buttonVentas.Name = "buttonVentas";
+            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
+            this.buttonVentas.TabIndex = 15;
+            this.buttonVentas.Text = "Ventas";
+            this.buttonVentas.UseVisualStyleBackColor = false;
+            // 
+            // buttonInventario
+            // 
+            this.buttonInventario.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventario.ForeColor = System.Drawing.Color.White;
+            this.buttonInventario.Image = global::UI.Properties.Resources.calculator_edit;
+            this.buttonInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventario.Location = new System.Drawing.Point(217, 65);
+            this.buttonInventario.Name = "buttonInventario";
+            this.buttonInventario.Size = new System.Drawing.Size(204, 34);
+            this.buttonInventario.TabIndex = 16;
+            this.buttonInventario.Text = "Inventario";
+            this.buttonInventario.UseVisualStyleBackColor = false;
+            // 
+            // buttonAdministrativo
+            // 
+            this.buttonAdministrativo.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAdministrativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdministrativo.ForeColor = System.Drawing.Color.White;
+            this.buttonAdministrativo.Image = global::UI.Properties.Resources.computer;
+            this.buttonAdministrativo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdministrativo.Location = new System.Drawing.Point(217, 25);
+            this.buttonAdministrativo.Name = "buttonAdministrativo";
+            this.buttonAdministrativo.Size = new System.Drawing.Size(204, 34);
+            this.buttonAdministrativo.TabIndex = 17;
+            this.buttonAdministrativo.Text = "Administrativo";
+            this.buttonAdministrativo.UseVisualStyleBackColor = false;
             // 
             // MenuModulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UI.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(478, 332);
+            this.ClientSize = new System.Drawing.Size(640, 371);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCerrarSesion);
             this.Controls.Add(this.groupBox2);
@@ -235,9 +283,12 @@
         public System.Windows.Forms.Label labNombreEmpresa;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonFinanzas;
-        private System.Windows.Forms.Button buttonVentas;
+        private System.Windows.Forms.Button buttonCompras;
         private System.Windows.Forms.Button buttonCerrarSesion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClientes;
+        private System.Windows.Forms.Button buttonVentas;
+        private System.Windows.Forms.Button buttonInventario;
+        private System.Windows.Forms.Button buttonAdministrativo;
     }
 }

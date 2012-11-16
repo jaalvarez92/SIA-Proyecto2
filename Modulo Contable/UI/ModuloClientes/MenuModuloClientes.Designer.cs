@@ -38,8 +38,8 @@
             this.labCedJuridica = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.buttonAgregarSocio = new System.Windows.Forms.Button();
             this.buttonConsultar = new System.Windows.Forms.Button();
+            this.buttonAgregarSocio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -49,9 +49,9 @@
             this.buttonAtras.BackColor = System.Drawing.SystemColors.HotTrack;
             this.buttonAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAtras.ForeColor = System.Drawing.Color.White;
-            this.buttonAtras.Image = global::UI.Properties.Resources.bullet_go;
+            this.buttonAtras.Image = global::UI.Properties.Resources.arrow_left;
             this.buttonAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAtras.Location = new System.Drawing.Point(495, 343);
+            this.buttonAtras.Location = new System.Drawing.Point(297, 342);
             this.buttonAtras.Name = "buttonAtras";
             this.buttonAtras.Size = new System.Drawing.Size(146, 27);
             this.buttonAtras.TabIndex = 4;
@@ -65,7 +65,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.5F);
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(193, 9);
+            this.label1.Location = new System.Drawing.Point(118, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 25);
             this.label1.TabIndex = 6;
@@ -152,10 +152,26 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(223, 79);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 201);
+            this.groupBox2.Size = new System.Drawing.Size(220, 201);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
+            // 
+            // buttonConsultar
+            // 
+            this.buttonConsultar.AccessibleName = "";
+            this.buttonConsultar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsultar.ForeColor = System.Drawing.Color.White;
+            this.buttonConsultar.Image = global::UI.Properties.Resources.magnifier;
+            this.buttonConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConsultar.Location = new System.Drawing.Point(29, 127);
+            this.buttonConsultar.Name = "buttonConsultar";
+            this.buttonConsultar.Size = new System.Drawing.Size(155, 34);
+            this.buttonConsultar.TabIndex = 2;
+            this.buttonConsultar.Text = " Consultar Socio";
+            this.buttonConsultar.UseVisualStyleBackColor = false;
+            this.buttonConsultar.Click += new System.EventHandler(this.buttonConsultar_Click);
             // 
             // buttonAgregarSocio
             // 
@@ -165,29 +181,13 @@
             this.buttonAgregarSocio.ForeColor = System.Drawing.Color.White;
             this.buttonAgregarSocio.Image = global::UI.Properties.Resources.book_add;
             this.buttonAgregarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarSocio.Location = new System.Drawing.Point(16, 21);
+            this.buttonAgregarSocio.Location = new System.Drawing.Point(29, 49);
             this.buttonAgregarSocio.Name = "buttonAgregarSocio";
             this.buttonAgregarSocio.Size = new System.Drawing.Size(155, 34);
             this.buttonAgregarSocio.TabIndex = 1;
             this.buttonAgregarSocio.Text = "Agregar Socio";
             this.buttonAgregarSocio.UseVisualStyleBackColor = false;
             this.buttonAgregarSocio.Click += new System.EventHandler(this.buttonAgregarSocio_Click);
-            // 
-            // buttonConsultar
-            // 
-            this.buttonConsultar.AccessibleName = "";
-            this.buttonConsultar.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultar.ForeColor = System.Drawing.Color.White;
-            this.buttonConsultar.Image = global::UI.Properties.Resources.book_add;
-            this.buttonConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConsultar.Location = new System.Drawing.Point(16, 78);
-            this.buttonConsultar.Name = "buttonConsultar";
-            this.buttonConsultar.Size = new System.Drawing.Size(155, 34);
-            this.buttonConsultar.TabIndex = 2;
-            this.buttonConsultar.Text = " Consultar Socio";
-            this.buttonConsultar.UseVisualStyleBackColor = false;
-            this.buttonConsultar.Click += new System.EventHandler(this.buttonConsultar_Click);
             // 
             // MenuModuloClientes
             // 
@@ -196,14 +196,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::UI.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(653, 395);
+            this.ClientSize = new System.Drawing.Size(484, 395);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAtras);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(669, 433);
-            this.MinimumSize = new System.Drawing.Size(669, 433);
+            this.MaximumSize = new System.Drawing.Size(500, 433);
+            this.MinimumSize = new System.Drawing.Size(500, 433);
             this.Name = "MenuModuloClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Módulo Clientes";
