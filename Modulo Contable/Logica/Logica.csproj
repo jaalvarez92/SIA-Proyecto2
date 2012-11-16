@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDLogica.cs" />
-    <Compile Include="ModuloClientes\SocioBL.cs" />
+    <Compile Include="ModuloClientes\SocioLogica.cs" />
     <Compile Include="ModuloContabilidad\AsientoLogica.cs" />
     <Compile Include="ModuloContabilidad\CuentaLogica.cs" />
     <Compile Include="GrupoLogica.cs" />

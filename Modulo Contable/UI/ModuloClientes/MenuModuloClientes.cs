@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace UI
+namespace UI.ModuloClientes
 {
     public partial class MenuModuloClientes : Form
     {
@@ -35,6 +35,8 @@ namespace UI
 
         private void buttonAgregarSocio_Click(object sender, EventArgs e)
         {
+            new AgregarSocio().Show(this);
+            this.Hide();
         }
 
 

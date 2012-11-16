@@ -17,5 +17,16 @@ namespace AccesoDatos
             return resultado_table;
         }
 
+        public static Entity CrearSocio(String pNombre, String pCodigo, int pIdCuenta, int pIdTipoSocio)
+        {
+            Entity parametros = new Entity();
+            parametros.Set("pNombre", pNombre);
+            parametros.Set("pCodigo", pCodigo);
+            parametros.Set("pIdCuenta", pIdCuenta);
+            parametros.Set("pIdTipoSocio", pIdTipoSocio);
+            Entity resultado = ManejadorBaseDatos.Instancia.EjecutarSP("crear_socio", parametros);
+            return resultado;
+        }
+
     }
 }

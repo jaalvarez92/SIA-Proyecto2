@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.ModuloClientes
 {
     partial class MenuModuloClientes
     {
