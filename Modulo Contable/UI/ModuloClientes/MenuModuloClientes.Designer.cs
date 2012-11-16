@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonAgregarSocio = new System.Windows.Forms.Button();
+            this.buttonConsultar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +146,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.buttonConsultar);
             this.groupBox2.Controls.Add(this.buttonAgregarSocio);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -170,6 +172,22 @@
             this.buttonAgregarSocio.Text = "Agregar Socio";
             this.buttonAgregarSocio.UseVisualStyleBackColor = false;
             this.buttonAgregarSocio.Click += new System.EventHandler(this.buttonAgregarSocio_Click);
+            // 
+            // buttonConsultar
+            // 
+            this.buttonConsultar.AccessibleName = "";
+            this.buttonConsultar.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsultar.ForeColor = System.Drawing.Color.White;
+            this.buttonConsultar.Image = global::UI.Properties.Resources.book_add;
+            this.buttonConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConsultar.Location = new System.Drawing.Point(16, 78);
+            this.buttonConsultar.Name = "buttonConsultar";
+            this.buttonConsultar.Size = new System.Drawing.Size(155, 34);
+            this.buttonConsultar.TabIndex = 2;
+            this.buttonConsultar.Text = " Consultar Socio";
+            this.buttonConsultar.UseVisualStyleBackColor = false;
+            this.buttonConsultar.Click += new System.EventHandler(this.buttonConsultar_Click);
             // 
             // MenuModuloClientes
             // 
@@ -210,5 +228,6 @@
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonAgregarSocio;
+        private System.Windows.Forms.Button buttonConsultar;
     }
 }

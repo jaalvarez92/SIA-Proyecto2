@@ -20,5 +20,15 @@ namespace Logica.ModuloClientes
             Entity result = SociosDA.CrearSocio(pNombre, pCodigo, pIdCuenta, pIdTipoSocio);
             return (Boolean)result.Get("estado");
         }
+
+        public static Entities ObtenerSocio(String pCodigo)
+        {
+            return SociosDA.ObtenerSocio(pCodigo);
+        }
+
+        public static Entities ObtenerDocumentosAbiertosSocio(int pIdSocio)
+        {
+            return SociosDA.ObtenerDocumentosAbiertosSocio(pIdSocio);
+        }
     }
 }

@@ -39,6 +39,12 @@ namespace UI.ModuloClientes
             this.Hide();
         }
 
+        private void buttonConsultar_Click(object sender, EventArgs e)
+        {
+            new ConsultarSocio().Show(this);
+            this.Hide();
+        }
+
 
 
     }

@@ -28,5 +28,24 @@ namespace AccesoDatos
             return resultado;
         }
 
+
+        public static Entities ObtenerSocio(String pCodigo)
+        {
+            Entity parametros = new Entity();
+            parametros.Set("pCodigo", pCodigo);
+            Entity resultado = ManejadorBaseDatos.Instancia.EjecutarSP("obtener_socio", parametros);
+            Entities resultado_table = (Entities)resultado.Get("table");
+            return resultado_table;
+        }
+
+        public static Entities ObtenerDocumentosAbiertosSocio(int pIdSocio)
+        {
+            Entity parametros = new Entity();
+            parametros.Set("pIdSocio", pIdSocio);
+            Entity resultado = ManejadorBaseDatos.Instancia.EjecutarSP("obtener_documentos_abiertos_socio", parametros);
+            Entities resultado_table = (Entities)resultado.Get("table");
+            return resultado_table;
+        }
+
     }
 }

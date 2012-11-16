@@ -64,6 +64,12 @@
     <Compile Include="ModuloClientes\AgregarSocio.Designer.cs">
       <DependentUpon>AgregarSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuloClientes\ConsultarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloClientes\ConsultarSocio.Designer.cs">
+      <DependentUpon>ConsultarSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuloClientes\MenuModuloClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloClientes\AgregarSocio.resx">
       <DependentUpon>AgregarSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloClientes\ConsultarSocio.resx">
+      <DependentUpon>ConsultarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloClientes\MenuModuloClientes.resx">
       <DependentUpon>MenuModuloClientes.cs</DependentUpon>
