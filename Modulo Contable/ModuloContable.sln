@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceGenerarAsiento", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatosInventario", "AccesoDatosInventario\AccesoDatosInventario.csproj", "{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.csproj", "{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ModuloContable.vsmdi
@@ -108,6 +110,16 @@ Global
 		{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}.Release|x86.ActiveCfg = Release|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
