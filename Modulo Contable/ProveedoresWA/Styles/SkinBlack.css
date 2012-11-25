@@ -1,0 +1,111 @@
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Dialog 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#jcdevDialogBack
+{
+    background-color: black;
+}
+
+#jcdevDialogContent
+{
+    background-color: transparent;
+}
+
+#jcdevDialogTHeader
+{
+    background-image: url('/img/sectionHeader.png');
+    color:white;
+}
+
+#jcdevDialogTContent, #jcdevDialogTButtons{
+    background-color: white;
+}
+
+#jcdevDialogOk{
+    background-image: url('/img/button.png');
+    border:gray solid 1px;
+}
+
+#jcdevDialogOk:hover
+{
+    background-color: transparent;
+    background-image: url('/img/button2.png');
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ HTML Pages
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+html, body, button, input{
+    font-family: 'century gothic';
+    font-size:14px;
+}
+
+#mainHeader, #mainClock
+{
+    color:white;
+    font-size: 20px;
+    background-image: url('/img/back.png');
+    background-repeat: repeat-x;
+    
+}
+
+#mainClock{
+    font-weight: bold;
+}
+
+#mainSep{
+    background-color: #44AA44
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Task buttons
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+div.task, div.selectedTask
+{
+    background-image: url('/img/button.png');
+    background-repeat: repeat-x;
+    background-color: transparent;
+    border:gray solid 1px;
+}
+
+div.task:hover
+{
+    background-color: transparent;
+    background-image: url('/img/button2.png');
+}
+
+div.selectedTask{
+    color: white;
+    background-color: transparent;
+    background-image: url('/img/button3.png');
+    border: gray solid 1px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Section containers
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+td.sectionHeader
+{
+    background-repeat: repeat-x;
+    background-image: url('/img/sectionHeader.png');
+    color:white;
+}
+
+td.sectionContent
+{
+    border: gray solid 1px;   
+}
+
+td.sectionContent2
+{
+    border: gray solid 1px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Traffic Light
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+div.lightContainer
+{
+    background-color: transparent;
+    background-image:url('/img/traffic/trafficbackground.png');
+}
