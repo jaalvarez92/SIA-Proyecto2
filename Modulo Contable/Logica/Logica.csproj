@@ -47,10 +47,15 @@
     <Compile Include="GrupoLogica.cs" />
     <Compile Include="ModuloContabilidad\MonedaLogica.cs" />
     <Compile Include="ModuloContabilidad\TipoCambioLogica.cs" />
+    <Compile Include="ModuloInventario\ArticuloLogica.cs" />
     <Compile Include="UsuarioLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatosInventario\AccesoDatosInventario.csproj">
+      <Project>{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}</Project>
+      <Name>AccesoDatosInventario</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
       <Project>{CA2A4034-89E8-4EC7-A287-BA7BE17D915B}</Project>
       <Name>AccesoDatos</Name>
@@ -63,7 +68,6 @@
   <ItemGroup>
     <Folder Include="ModuloAdministrativo\" />
     <Folder Include="ModuloCompras\" />
-    <Folder Include="ModuloInventario\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
