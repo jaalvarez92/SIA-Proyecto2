@@ -36,14 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labNombreEmpresa = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonInventario = new System.Windows.Forms.Button();
+            this.buttonAdministrativo = new System.Windows.Forms.Button();
+            this.buttonVentas = new System.Windows.Forms.Button();
             this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonFinanzas = new System.Windows.Forms.Button();
             this.buttonCompras = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonVentas = new System.Windows.Forms.Button();
-            this.buttonInventario = new System.Windows.Forms.Button();
-            this.buttonAdministrativo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +138,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Módulos";
             // 
+            // buttonInventario
+            // 
+            this.buttonInventario.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventario.ForeColor = System.Drawing.Color.White;
+            this.buttonInventario.Image = global::UI.Properties.Resources.calculator_edit;
+            this.buttonInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventario.Location = new System.Drawing.Point(217, 65);
+            this.buttonInventario.Name = "buttonInventario";
+            this.buttonInventario.Size = new System.Drawing.Size(204, 34);
+            this.buttonInventario.TabIndex = 16;
+            this.buttonInventario.Text = "Inventario";
+            this.buttonInventario.UseVisualStyleBackColor = false;
+            this.buttonInventario.Click += new System.EventHandler(this.buttonInventario_Click);
+            // 
+            // buttonAdministrativo
+            // 
+            this.buttonAdministrativo.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAdministrativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdministrativo.ForeColor = System.Drawing.Color.White;
+            this.buttonAdministrativo.Image = global::UI.Properties.Resources.computer;
+            this.buttonAdministrativo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdministrativo.Location = new System.Drawing.Point(217, 25);
+            this.buttonAdministrativo.Name = "buttonAdministrativo";
+            this.buttonAdministrativo.Size = new System.Drawing.Size(204, 34);
+            this.buttonAdministrativo.TabIndex = 17;
+            this.buttonAdministrativo.Text = "Administrativo";
+            this.buttonAdministrativo.UseVisualStyleBackColor = false;
+            // 
+            // buttonVentas
+            // 
+            this.buttonVentas.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVentas.ForeColor = System.Drawing.Color.White;
+            this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
+            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVentas.Location = new System.Drawing.Point(217, 105);
+            this.buttonVentas.Name = "buttonVentas";
+            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
+            this.buttonVentas.TabIndex = 15;
+            this.buttonVentas.Text = "Ventas";
+            this.buttonVentas.UseVisualStyleBackColor = false;
+            // 
             // buttonClientes
             // 
             this.buttonClientes.AccessibleName = "";
@@ -210,48 +253,6 @@
             this.label1.Size = new System.Drawing.Size(155, 25);
             this.label1.TabIndex = 13;
             this.label1.Text = "Menú Principal";
-            // 
-            // buttonVentas
-            // 
-            this.buttonVentas.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVentas.ForeColor = System.Drawing.Color.White;
-            this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
-            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.Location = new System.Drawing.Point(217, 105);
-            this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
-            this.buttonVentas.TabIndex = 15;
-            this.buttonVentas.Text = "Ventas";
-            this.buttonVentas.UseVisualStyleBackColor = false;
-            // 
-            // buttonInventario
-            // 
-            this.buttonInventario.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventario.ForeColor = System.Drawing.Color.White;
-            this.buttonInventario.Image = global::UI.Properties.Resources.calculator_edit;
-            this.buttonInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventario.Location = new System.Drawing.Point(217, 65);
-            this.buttonInventario.Name = "buttonInventario";
-            this.buttonInventario.Size = new System.Drawing.Size(204, 34);
-            this.buttonInventario.TabIndex = 16;
-            this.buttonInventario.Text = "Inventario";
-            this.buttonInventario.UseVisualStyleBackColor = false;
-            // 
-            // buttonAdministrativo
-            // 
-            this.buttonAdministrativo.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonAdministrativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdministrativo.ForeColor = System.Drawing.Color.White;
-            this.buttonAdministrativo.Image = global::UI.Properties.Resources.computer;
-            this.buttonAdministrativo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdministrativo.Location = new System.Drawing.Point(217, 25);
-            this.buttonAdministrativo.Name = "buttonAdministrativo";
-            this.buttonAdministrativo.Size = new System.Drawing.Size(204, 34);
-            this.buttonAdministrativo.TabIndex = 17;
-            this.buttonAdministrativo.Text = "Administrativo";
-            this.buttonAdministrativo.UseVisualStyleBackColor = false;
             // 
             // MenuModulos
             // 

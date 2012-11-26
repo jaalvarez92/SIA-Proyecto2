@@ -47,8 +47,14 @@ namespace UI
             this.Owner.Refresh();
             this.Close();
         }
-        #endregion
 
-        
+
+        private void buttonInventario_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inventarios.VInventarios ds = new Inventarios.VInventarios();
+            ds.Show();
+        }
+        #endregion
     }
 }
