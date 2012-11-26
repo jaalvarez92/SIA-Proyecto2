@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using Entidades;
 using System.Web.Services;
+using Logica.ModuloClientes;
+using Logica.ModuloCompras;
 
 namespace ProveedoresWA.Controllers
 {
@@ -14,6 +16,7 @@ namespace ProveedoresWA.Controllers
             //_Logica = new LogicaUsuarios();
         }
 
+        /*
         [WebMethod]
         public Entity AutenticarSocio(String pUsuario, String pPassword)
         {
@@ -27,7 +30,26 @@ namespace ProveedoresWA.Controllers
                 return socio;
             }
             return null;
+        }*/
+        
+
+        [WebMethod]
+        public static Object[] AutenticarSocio(string pUsuario, string pPassword)
+        {
+            return SocioLogica.AutenticarSocio(pUsuario, pPassword);
         }
 
+
+        [WebMethod]
+        public static Object[] ObtenerOrdenesCompraAutomaticasXSocio(string pIdSocio)
+        {
+            Entities ordenes = ComprasLogica.ObtenerOrdenesCompraAutomaticasXSocio(int.Parse(pIdSocio));
+            List<Object[]> resultado = new List<Object[]>();
+            foreach (Entity e in ordenes)
+            {
+                resultado.Add(new Object[] { e.Get("fecha1"), e.Get("NumeroDocumento"), e.Get("Descripcion"), e.Get("Stock"), e.Get("CantidadMaxima"), e.Get("CantidadMinima"), e.Get("total") });
+            }
+            return resultado.ToArray();
+        }
     }
 }

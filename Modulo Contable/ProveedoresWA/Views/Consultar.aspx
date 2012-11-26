@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../JS/jquery-1.4.2.min.js"></script>
     <script language="javascript" type="text/javascript" src="../JS/jGauge/jQueryRotate.min.js"></script>
     <script language="javascript" type="text/javascript" src="../JS/jGauge/jgauge-0.3.0.a3.js"></script>
+    <script type="text/javascript" src="../JS/main.js"></script>
     <script type="text/javascript" src="../JS/clock.js"></script>
     <script type="text/javascript" src="../JS/gauge.js"></script>
     <script type="text/javascript" src="../JS/consultar.js"></script>
@@ -56,13 +57,13 @@
                             <td class="sectionContent">
                                 Nombre de Usuario:
                                 <br/>
-                                <input type="text" id='textboxUsuario' size="15" tabindex="1" onkeypress="moveTaskCursor(event)"
-                                    value="P00000001"/>
+                                <input type="text" id='textBoxUsuario' size="15" tabindex="1" onkeypress="Autenticar(event)"
+                                    value="pamodi"/>
                                 <br/>
                                 Contraseña
                                 <br/>
-                                <input type="password" id='textboxPassword' size="15" tabindex="1" onkeypress="Autenticar()"
-                                    value="0108460834"/>
+                                <input type="password" id='textBoxPassword' size="15" tabindex="1" onkeypress="Autenticar(event)"
+                                    value="1"/>
                                 <br/>
                                 <div id="proveedor">
                                 </div>
@@ -192,7 +193,7 @@
                                     <tr>
                                         <td>
                                             <center>
-                                                <div id="taskButton">
+                                                <div id="orderButton">
                                                 </div>
                                             </center>
                                         </td>

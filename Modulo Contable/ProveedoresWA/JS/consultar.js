@@ -1,19 +1,10 @@
 //sets variables
+var idUsuario = 0;
+var ordenes;
+
+
 
 function init(){
-    
-    //inits the jquery components
-    /*
-    trafficLight = TrafficLight({
-        div:'divTraffic'
-    }); 
-    
-    dialog = Dialog({
-        speed:200
-    });
-    */
-    
-    
     clock({
         id:'datetime'
     });
@@ -26,23 +17,115 @@ function init(){
 
 
 
-function Autenticar() {
-    var usuario = $("#textBoxUsuario").text();
-    var password = $("#textBoxPassword").text();
-    $.ajax(
-     {
-         Type: "POST",
-         contentType: "application/json; charset=utf-8",
-         url: "http://localhost:56870/WebServiceWA.asmx/AutenticarSocio",
-         data: { 'pUsuario': '"+usuario+"', 'pPassword': '"+password+"'},
-         success: function (msg) {
-             alert('sí');
-         }
-     });
+function Autenticar(e) {
+    if (e.keyCode == 13) {
+        var usuario = $("#textBoxUsuario").val();
+        var password = $("#textBoxPassword").val();
+        requestAjax('Consultar.aspx/AutenticarSocio', procesarE, procesarEError,
+        {
+            'pUsuario': usuario,
+            'pPassword': password
+        });
+    }
+}
+
+
+function procesarE(data) {
+    //alert('hola');
+    if (data.d != null){
+        $('#proveedor').html(data.d[1]);
+        $('#textBoxUsuario').attr('disabled', 'true');
+        $('#textBoxPassword').attr('disabled', 'true');
+        idUsuario = data.d[0];
+        botonCerrarSesion();
+        llenarOrdenes();
+        
+    }
+    else
+        $('#proveedor').html('Nombre de Usuario o contrase'+'\u00f1'+'a incorrecta.');
 }
 
 
 
+function llenarOrdenes() {
+    requestAjax('Consultar.aspx/ObtenerOrdenesCompraAutomaticasXSocio', procesarE2, procesarEError2,
+        {
+            'pIdSocio': idUsuario
+        });
+}
+
+function procesarEError(data) {
+    $('#proveedor').html('Error de conexión');
+}
+
+
+
+function procesarE2(data) {
+    if (data.d != null) {
+        ordenes= data.d;
+        var botones = '';
+        for (i = 0; i != data.d.length; i++) {
+            botones = botones + '<div id="button_orden_'+ordenes[i][1]+'" onclick="orden('+i+')" class="task">' +ordenes[i][2]+' </div>  '
+        }
+        $('#taskContainer').html(botones);    
+    }
+    
+}
+
+function orden(i) {
+    $('#Orden_Fecha').html(ChangeDateFormat(ordenes[i][0]));
+    $('#Orden_Valor').html(ordenes[i][6]);
+    $('#stock_minimo').html(ordenes[i][5]);
+    $('#stock_actual').html(ordenes[i][3]);
+    $('#stock_maximo').html(ordenes[i][4]);
+    gauge.setValue(ordenes[i][3] / ordenes[i][4] * 100);
+    var boton = '<div id="button_cambiar_' + ordenes[i][1] + '" onclick="facturarOrden(' + ordenes[i][1] + ')" class="task">' + 'Facturar' + ' </div>  '
+    $('#orderButton').html(boton);
+}
+
+
+function procesarEError2(data) {
+    $('#proveedor').html('Error de conexión');
+}
+
+
+function limpiarCampos() {
+    gauge.setValue(0);
+    $('#Orden_Fecha').html('01/01/0001');
+    $('#Orden_Valor').html(0);
+    $('#stock_minimo').html(0);
+    $('#stock_actual').html(0);
+    $('#stock_maximo').html(0);
+    $('#orderButton').html('');
+}
+
+
+function cerrarSesion() {
+    limpiarCampos();
+    $('#textBoxUsuario').attr('disabled', '');
+    $('#textBoxPassword').attr('disabled', '');
+    $("#textBoxUsuario").val('');
+    $("#textBoxPassword").val('');
+    $('#proveedor').html('');
+    $('#options').html('');
+    $('#taskContainer').html('Por favor ingrese sus datos...');
+}
+
+
+
+function facturarOrden(i) {
+    limpiarCampos();
+    llenarOrdenes();
+} 
+
+
+/**
+ * Paints a task button in the div which
+ * name follows the patter 'task_{id}'
+ */
+function botonCerrarSesion(){
+         $('#options').html('<div id="button_cerrar_sesion" onclick="cerrarSesion()" class="task"> Cerrar Sesion </div>');
+}
 ///**
 // * Process the error of the Http Reqeuest
 // */
