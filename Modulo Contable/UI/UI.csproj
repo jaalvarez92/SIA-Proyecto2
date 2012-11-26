@@ -118,6 +118,12 @@
     <Compile Include="ModuloContabilidad\MenuModuloFinanciero.Designer.cs">
       <DependentUpon>MenuModuloFinanciero.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuloInventario\VInventarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloInventario\VInventarios.designer.cs">
+      <DependentUpon>VInventarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModuloContabilidad\Reportes.cs">
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloContabilidad\MenuModuloFinanciero.resx">
       <DependentUpon>MenuModuloFinanciero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloInventario\VInventarios.resx">
+      <DependentUpon>VInventarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -323,7 +332,6 @@
   <ItemGroup>
     <Folder Include="ModuloAdministrativo\" />
     <Folder Include="ModuloCompras\" />
-    <Folder Include="ModuloInventario\" />
     <Folder Include="ModuloVentas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

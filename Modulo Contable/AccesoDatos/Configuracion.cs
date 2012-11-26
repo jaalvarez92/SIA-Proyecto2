@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace AccesoDatos
 {
-    static class Configuracion
+    public static class Configuracion
     {
 
         #region Constantes

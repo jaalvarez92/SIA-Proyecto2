@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="http://localhost/RestService" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="RestService.svc" publishTime="05/28/2012 10:31:54" />
+    <file relUrl="bin/Entidades.pdb" publishTime="07/10/2012 17:37:22" />
+    <file relUrl="bin/Entidades.dll" publishTime="07/10/2012 17:37:22" />
+    <file relUrl="bin/Negocios.pdb" publishTime="07/11/2012 09:52:49" />
+    <file relUrl="Web.config" publishTime="07/12/2012 11:10:26" />
+    <file relUrl="bin/WcfRestServiceEncuestas.dll" publishTime="07/11/2012 09:52:49" />
+    <file relUrl="bin/WcfRestServiceEncuestas.pdb" publishTime="07/11/2012 09:52:49" />
+    <file relUrl="bin/AccesoDatos.pdb" publishTime="07/11/2012 09:52:48" />
+    <file relUrl="bin/AccesoDatos.dll" publishTime="07/11/2012 09:52:48" />
+    <file relUrl="bin/Negocios.dll" publishTime="07/11/2012 09:52:49" />
+  </publishProfile>
+</publishData>
