@@ -1,0 +1,70 @@
+#jcdevDialogBack {
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    opacity:0.5;
+    position: absolute;
+    margin: 0px;
+    padding:0px;
+    border-width: 0px;
+    border-style: none;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    display:none;
+}
+
+#jcdevDialogBack, #jcdevDialogOk {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+}
+
+#jcdevDialogContent
+{
+    z-index: 9999;
+    display: block;
+    position: absolute;
+    float:none; 
+    display:none;
+}
+
+#jcdevDialogT
+{
+    width:100%;
+    height:100%;
+    background-color:transparent;
+}
+
+#jcdevDialogTHeader
+{
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    background-color:green;
+}
+
+#jcdevDialogTHeader{
+    background-repeat: repeat-x;
+    height:35px;
+    padding-left: 10px;
+    -moz-border-top-left-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: gray solid 1px;
+    vertical-align: middle;
+}
+
+#jcdevDialogTContent{
+    padding: 5px;
+}
+
+#jcdevDialogTButtons{
+    height: 40px;
+}

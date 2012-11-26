@@ -1,0 +1,165 @@
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ HTML pages
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+html, body {
+    padding:0px;
+    margin:0px;
+    height:100%;
+    width:100%;
+    vertical-align: top;
+}
+
+#logo{
+    width:50px;
+    height:50px;
+}
+
+#tdLogo{
+    vertical-align: middle;
+}
+
+#mainHeader{
+    height: 40px;
+    width: 100%;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+#mainSep
+{
+        height:3px;
+}
+
+#mainClock
+{
+    vertical-align: middle;
+    text-align: right;  
+    padding-right: 10px;
+}
+
+td
+{
+    vertical-align: top;
+}
+
+input[type="text"]
+{
+    text-align: right;
+    width: 98%;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+input[type="password"]
+{
+    text-align: right;
+    width: 98%;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+table
+{ 
+    padding:0; 
+}
+
+div.main
+{
+    width:100%;
+    padding:0px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Task buttons
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+div.task, div.selectedTask, #jcdevDialogOk
+{
+    -moz-border-radius: 5px;
+    vertical-align: middle;
+}
+
+div.task, div.selectedTask, td.sectionHeader, #jcdevDialogOk
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin: 5px;
+    cursor:default;
+}
+
+div.taskContainer{
+    border:#0F0F0F solid 1px;
+    padding: 20px;
+    width:90%;
+    display:inline-block;
+}
+
+div.task, div.selectedTask, #jcdevDialogOk
+{
+    display:inline-block;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ Sections
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+table.section
+{
+    width: 100%;
+    padding: 20px;
+}
+
+td.sectionHeader
+{
+    height:35px;
+    padding-left: 10px;
+    -moz-border-top-left-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    border: gray solid 1px;
+    vertical-align: middle;
+}
+
+td.sectionContent
+{
+    padding:10px;
+    height:280px;  
+}
+
+
+td.sectionContent2
+{
+    padding:10px;
+    height: 100px;
+}
+
+table.sectionsContainer
+{
+    width:100%;
+}
+
+td.sectionContainer
+{
+    width:30%;
+}
+
+img.sectionIcon
+{
+    height: 20px;
+    width: 20px;
+}
+
+
+td.sectionOrderState
+{
+    width: 180px; 
+    text-align: center;
+}

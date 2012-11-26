@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65918360-F70E-4594-AA7B-478F5545D70A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProveedoresWA</RootNamespace>
+    <AssemblyName>ProveedoresWA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\back.png" />
+    <Content Include="img\barcode.png" />
+    <Content Include="img\button.png" />
+    <Content Include="img\button2.png" />
+    <Content Include="img\button3.png" />
+    <Content Include="img\clock.png" />
+    <Content Include="img\error.png" />
+    <Content Include="img\gaugeicon.png" />
+    <Content Include="img\jGauge\gauge.png" />
+    <Content Include="img\jGauge\jgauge_face_default.png" />
+    <Content Include="img\jGauge\jgauge_face_taco.png" />
+    <Content Include="img\jGauge\jgauge_needle_default.png" />
+    <Content Include="img\jGauge\jgauge_needle_taco.png" />
+    <Content Include="img\jGauge\taco.png" />
+    <Content Include="img\lighticon.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\sectionback.png" />
+    <Content Include="img\sectionHeader.png" />
+    <Content Include="img\task.png" />
+    <Content Include="img\traffic\green.png" />
+    <Content Include="img\traffic\red.png" />
+    <Content Include="img\traffic\trafficbackground.png" />
+    <Content Include="img\traffic\yellow.png" />
+    <Content Include="img\wait.gif" />
+    <Content Include="JS\clock.js" />
+    <Content Include="JS\consultar.js" />
+    <Content Include="JS\gauge.js" />
+    <Content Include="JS\jGauge\excanvas.min.js" />
+    <Content Include="JS\jGauge\jgauge-0.3.0.a3.js" />
+    <Content Include="JS\jGauge\jgauge-0.3.0.a3.min.js" />
+    <Content Include="JS\jGauge\jQueryRotate.min.js" />
+    <Content Include="JS\jquery-1.4.2.min.js" />
+    <Content Include="JS\jquery-1.8.2.js" />
+    <Content Include="JS\jquery-ui-1.9.1.custom.min.js" />
+    <Content Include="JS\Login.js" />
+    <Content Include="JS\main.js" />
+    <Content Include="JS\modernizr-1.5.min.js" />
+    <Content Include="Styles\img\back.png" />
+    <Content Include="Styles\img\barcode.png" />
+    <Content Include="Styles\img\button.png" />
+    <Content Include="Styles\img\button2.png" />
+    <Content Include="Styles\img\button3.png" />
+    <Content Include="Styles\img\clock.png" />
+    <Content Include="Styles\img\error.png" />
+    <Content Include="Styles\img\gaugeicon.png" />
+    <Content Include="Styles\img\jGauge\gauge.png" />
+    <Content Include="Styles\img\jGauge\jgauge_face_default.png" />
+    <Content Include="Styles\img\jGauge\jgauge_face_taco.png" />
+    <Content Include="Styles\img\jGauge\jgauge_needle_default.png" />
+    <Content Include="Styles\img\jGauge\jgauge_needle_taco.png" />
+    <Content Include="Styles\img\jGauge\taco.png" />
+    <Content Include="Styles\img\lighticon.png" />
+    <Content Include="Styles\img\logo.png" />
+    <Content Include="Styles\img\sectionback.png" />
+    <Content Include="Styles\img\sectionHeader.png" />
+    <Content Include="Styles\img\task.png" />
+    <Content Include="Styles\img\traffic\green.png" />
+    <Content Include="Styles\img\traffic\red.png" />
+    <Content Include="Styles\img\traffic\trafficbackground.png" />
+    <Content Include="Styles\img\traffic\yellow.png" />
+    <Content Include="Styles\img\wait.gif" />
+    <Content Include="Styles\jcdev\dialog.css" />
+    <Content Include="Styles\jcdev\jgauge.css" />
+    <Content Include="Styles\jcdev\trafficLight.css" />
+    <Content Include="Styles\jquery-ui-1.9.0.custom.css" />
+    <Content Include="Styles\main.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\SkinBlack.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Styles\Style2.css" />
+    <Content Include="Views\Consultar.aspx" />
+    <Content Include="Views\Login.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSWA\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSWA\WebServiceWA.disco" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\WSWA\WebServiceWA.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\Consultar.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\Login.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSWA\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\jGauge\Thumbs.db" />
+    <None Include="img\Thumbs.db" />
+    <None Include="Styles\img\.DS_Store" />
+    <None Include="Styles\img\._.DS_Store" />
+    <None Include="Styles\img\jGauge\Thumbs.db" />
+    <None Include="Styles\img\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{CC3AA755-6457-4562-B35C-73DD4105A28D}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{90319B2E-F51E-44FD-AA9F-4AE4AAF4CB08}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:56870/WebServiceWA.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSWA\</RelPath>
+      <UpdateFromURL>http://localhost:56870/WebServiceWA.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ProveedoresWA_WSWA_WebServiceWA</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56796</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

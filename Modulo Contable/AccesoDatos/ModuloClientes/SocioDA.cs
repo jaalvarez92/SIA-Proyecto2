@@ -9,6 +9,15 @@ namespace AccesoDatos
     public static class SociosDA
     {
 
+        public static Entities AutenticarSocio(String pUsuario, String pPassword)
+        {
+            Entity parametros = new Entity();
+            parametros.Set("pUsuario", pUsuario);
+            parametros.Set("pPassword", pPassword);
+            Entity resultado = ManejadorBaseDatos.Instancia.EjecutarSP("autenticar_socio", parametros);
+            return (Entities)resultado.Get("table");
+        }
+
         public static Entities ObtenerTiposSocios()
         {
             Entity parametros = new Entity();
