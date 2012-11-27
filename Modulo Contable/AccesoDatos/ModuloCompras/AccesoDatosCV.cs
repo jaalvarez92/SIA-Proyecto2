@@ -365,15 +365,15 @@ namespace AccesoDatos.ModuloCompras
         }
 
 
-        public static SqlDataReader obtenerMonedas(int pArticulo)
+        public static SqlDataReader obtenerMoneda(int pSocio)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             SqlDataReader lectorSQL;
             try
             {
-                SqlCommand execproc = new SqlCommand("SP_DEVOLVER_MONEDA_ARTICULO", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@idArticulo", SqlDbType.Int);
-                param.Value = pArticulo;
+                SqlCommand execproc = new SqlCommand("SP_OBTENER_MONEDAS_SOCIO", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = pSocio;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
                 lectorSQL = execproc.ExecuteReader();
@@ -402,6 +402,29 @@ namespace AccesoDatos.ModuloCompras
         }
 
 
+        public static SqlDataReader obtenerDocumentosPrevios(int IdDocumentoPrevio, int IdTipoDocumentoPrevio, int IdSocio)
+        {
+            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            SqlDataReader lectorSQL;
+            try
+            {
+                SqlCommand execproc = new SqlCommand("SP_OBTENER_INFO_DOCUMENTO_PREVIO", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@NumeroDocumentoPrevio", SqlDbType.Int);
+                param.Value = IdDocumentoPrevio;
+                param = execproc.Parameters.Add("@IdTipoDocumento", SqlDbType.Int);
+                param.Value = IdTipoDocumentoPrevio;
+                param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = IdSocio;
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                lectorSQL = execproc.ExecuteReader();
+            }
+
+            catch (Exception sqle) { lectorSQL = null; }
+            return lectorSQL;
+        }
+
         #endregion
+
     }
 }

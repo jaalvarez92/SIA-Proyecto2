@@ -22,6 +22,9 @@ namespace Logica.ModuloCompras
         private static List<String> _ListaBodegasNombres;
         private static Entities _ListaDocumentosPrevios;
         private static List<int> _ListaDocumentosPreviosNumeros;
+        private static Entity _Moneda;
+        private static Entities _ListaDocumentoPrevio;
+        private static List<String> _ListaDocumentoPrevioString;
         public static int banderaError;
 
         #endregion
@@ -121,6 +124,24 @@ namespace Logica.ModuloCompras
             get { return _ListaDocumentosPreviosNumeros; }
             set { _ListaDocumentosPreviosNumeros = value; }
         }
+        public static Entity Moneda
+        {
+            get { return LogicaInsertarDocumentos._Moneda; }
+            set { LogicaInsertarDocumentos._Moneda = value; }
+        }
+
+
+        public static Entities ListaDocumentoPrevio
+        {
+            get { return _ListaDocumentoPrevio; }
+            set { _ListaDocumentoPrevio = value; }
+        }
+
+        public static List<String> ListaDocumentoPrevioString
+        {
+            get { return _ListaDocumentoPrevioString; }
+            set { _ListaDocumentoPrevioString = value; }
+        }
 
         #endregion
 
@@ -130,7 +151,13 @@ namespace Logica.ModuloCompras
         public static int insertarDocumento(int Socio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Automatico, int IdEmpresa, int IdMoneda)
         {
             int IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
-            int IdDocumentoPrevio = (int)(ListaDocumentosPrevios.Get("numero", DocumentoPrevio).Get("id"));
+            int IdDocumentoPrevio;
+            if (DocumentoPrevio == 0)
+            {
+                IdDocumentoPrevio = 0;
+            }
+            else
+                IdDocumentoPrevio = (int)(ListaDocumentosPrevios.Get("numero", DocumentoPrevio).Get("id"));
             Boolean abierto, asiento = false;
             int retorno;
             if (TipoDocumento == FacturaProvedores || TipoDocumento == FacturaCliente || TipoDocumento == NotaCredito || TipoDocumento == FacturaServicios)
@@ -340,25 +367,33 @@ namespace Logica.ModuloCompras
             return ListaBodegasNombres;
         }
 
-        public static int obtenerMoneda(String pArticulo)
+        public static string obtenerMoneda(String pSocios)
         {
-            int Articulo = (int)(ListaArticulos.Get("nombre", pArticulo).Get("id"));
+            _Moneda = new Entity();
+
+            int Socio = (int)(ListaSocios.Get("nombre", pSocios).Get("id"));
             SqlDataReader lectorSQL;
-            int _Moneda = 0;
             try
             {
-                lectorSQL = AccesoDatosCV.obtenerMonedas(Articulo);
+                lectorSQL = AccesoDatosCV.obtenerMoneda(Socio);
                 if (lectorSQL.Read())
                 {
                     banderaError = 0;
-                    _Moneda = lectorSQL.GetInt32(0);
+                    Moneda.Set("id", lectorSQL.GetInt32(0));
+                    Moneda.Set("simbolo", lectorSQL.GetString(1));
                     lectorSQL.Close();
                 }
                 else
                     banderaError = 1;
             }
-            catch (Exception ex) { return 0; }
-            return _Moneda;
+            catch (Exception ex) { return null; }
+            return Moneda.Get("simbolo").ToString();
+        }
+
+        public static int obtenerIdMonedaSocio(String pMoneda)
+        {
+            int idMonedaSocio = (int)(Moneda.Get("id"));
+            return idMonedaSocio;
         }
 
         public static List<int> obtenerDocumentosPrevios(int pTipoDocumentoPrevio)
@@ -388,6 +423,52 @@ namespace Logica.ModuloCompras
             }
             catch (Exception ex) { return null; }
             return ListaDocumentosPreviosNumeros;
+        }
+
+        public static List<String> obtenerInfoDocumentoPrevio(int IdDocumentoPrevio, int IdTipoDocumentoPrevio, string IdSocio)
+        {
+            _ListaDocumentoPrevio = new Entities();
+            _ListaDocumentoPrevioString = new List<String>();
+
+            int Socio = (int)(ListaSocios.Get("nombre", IdSocio).Get("id"));
+
+            SqlDataReader lectorSQL;
+            int cuenta;
+            try
+            {
+                lectorSQL = AccesoDatosCV.obtenerDocumentosPrevios(IdDocumentoPrevio, IdTipoDocumentoPrevio, Socio);
+                if (lectorSQL.HasRows)
+                {
+                    banderaError = 0;
+                    while (lectorSQL.Read())
+                    {
+                        cuenta = ListaDocumentoPrevio.Count;
+                        ListaDocumentoPrevio.Add(new Entity());
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("idarticulo", lectorSQL.GetInt32(0));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("nombre", lectorSQL.GetString(1));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("descripcion", lectorSQL.GetString(2));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("cantidad", lectorSQL.GetInt32(3));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("simbolo", lectorSQL.GetString(4));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("precio", lectorSQL.GetDecimal(5));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("impuesto", lectorSQL.GetDecimal(6));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("total", lectorSQL.GetDecimal(7));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("idbodega", lectorSQL.GetInt32(8));
+                        ListaDocumentoPrevio.ElementAt(cuenta).Set("bodega", lectorSQL.GetString(9));
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetString(1));
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetString(2));
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetInt32(3).ToString());
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetString(4));
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetDecimal(5).ToString());
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetDecimal(6).ToString());
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetDecimal(7).ToString());
+                        ListaDocumentoPrevioString.Add(lectorSQL.GetString(9));
+                    }
+                }
+                else
+                    banderaError = 1;
+            }
+            catch (Exception ex) { return null; }
+            return ListaDocumentoPrevioString;
         }
 
         #endregion
