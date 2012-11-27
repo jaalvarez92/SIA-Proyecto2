@@ -116,6 +116,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(195, 21);
             this.comboBox2.TabIndex = 33;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -178,7 +179,7 @@
             this.panelServicios.Controls.Add(this.label9);
             this.panelServicios.Controls.Add(this.textBoxDescripcion);
             this.panelServicios.Controls.Add(this.comboBoxCuentas);
-            this.panelServicios.Location = new System.Drawing.Point(44, 250);
+            this.panelServicios.Location = new System.Drawing.Point(43, 248);
             this.panelServicios.Name = "panelServicios";
             this.panelServicios.Size = new System.Drawing.Size(800, 187);
             this.panelServicios.TabIndex = 26;
