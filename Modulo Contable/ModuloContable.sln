@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A2383BF-57A8-425D-8DDF-536D69E0496A}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
+		ModuloContable.vsmdi = ModuloContable.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
@@ -25,11 +26,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProveedoresWA", "ProveedoresWA\ProveedoresWA.csproj", "{65918360-F70E-4594-AA7B-478F5545D70A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSWebApp", "WebApplication1\WSWebApp.csproj", "{FA7F5374-6BF0-4C7B-ADCC-52045177B44A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatosInventario", "AccesoDatosInventario\AccesoDatosInventario.csproj", "{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.csproj", "{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFRestServicio", "WcfRestServiceModulo\WCFRestServicio.csproj", "{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitarios", "Utilitarios\Utilitarios.csproj", "{8860A62A-FEEC-497E-9911-9E2C67CE6598}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -144,16 +146,16 @@ Global
 		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{75DAD6D9-3428-4FFD-8723-64D15D3C3D54}.Release|x86.ActiveCfg = Release|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|x86.ActiveCfg = Release|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

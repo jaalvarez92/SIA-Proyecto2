@@ -38,6 +38,21 @@ namespace AccesoDatos
         }
 
 
+        public static Entity CrearProveedor(String pNombre, String pCodigo, int pIdCuenta, int pIdTipoSocio, String pNombreUsuario, String pPassword, String pCorreo)
+        {
+            Entity parametros = new Entity();
+            parametros.Set("pNombre", pNombre);
+            parametros.Set("pCodigo", pCodigo);
+            parametros.Set("pIdCuenta", pIdCuenta);
+            parametros.Set("pIdTipoSocio", pIdTipoSocio);
+            parametros.Set("pNombreUsuario", pNombreUsuario);
+            parametros.Set("pPassword", pPassword);
+            parametros.Set("pCorreo", pCorreo);
+            Entity resultado = ManejadorBaseDatos.Instancia.EjecutarSP("crear_proveedor", parametros);
+            return resultado;
+        }
+
+
         public static Entities ObtenerSocio(String pCodigo)
         {
             Entity parametros = new Entity();

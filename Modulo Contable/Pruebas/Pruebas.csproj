@@ -57,6 +57,10 @@
       <Project>{90319B2E-F51E-44FD-AA9F-4AE4AAF4CB08}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilitarios\Utilitarios.csproj">
+      <Project>{8860A62A-FEEC-497E-9911-9E2C67CE6598}</Project>
+      <Name>Utilitarios</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

@@ -31,6 +31,45 @@ namespace UI.ModuloClientes
             }
         }
 
+        public String NombreUsuario
+        {
+            get
+            {
+                return textBoxNombreUsuario.Text;
+            }
+            set
+            {
+                textBoxNombreUsuario.Text = value;
+            }
+        }
+
+        public String Password
+        {
+            get
+            {
+                return textBoxPassword.Text;
+            }
+            set
+            {
+                textBoxPassword.Text = value;
+            }
+        }
+
+
+        public String Email
+        {
+            get
+            {
+                return textBoxEmail.Text;
+            }
+            set
+            {
+                textBoxEmail.Text = value;
+            }
+        }
+
+
+
 
         public String Codigo
         {
@@ -82,6 +121,7 @@ namespace UI.ModuloClientes
             InitializeComponent();
             LlenarComboBoxTipoSocio();
             LlenarComboBoxCuentas();
+            groupBoxProveedor.Enabled = false;
         }
 
 
@@ -93,6 +133,7 @@ namespace UI.ModuloClientes
             {
                 comboBoxTipo.Items.Add(tipo.Get("tipo"));
             }
+            comboBoxTipo.SelectedIndex = 0;
         }
 
         public void LlenarComboBoxCuentas()
@@ -103,6 +144,7 @@ namespace UI.ModuloClientes
             {
                 comboBoxCuenta.Items.Add(cuenta.Get("nombre"));
             }
+            comboBoxCuenta.SelectedIndex = 0;
         }
 
 
@@ -124,12 +166,33 @@ namespace UI.ModuloClientes
         private void button1_Click(object sender, EventArgs e)
         {
             if (VerificarCampos())
-                if (SocioLogica.CrearSocio(Nombre, Codigo, IdCuenta, TipoSocio))
-                    MessageBox.Show("Creación exitosa de socio", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {
+                if (comboBoxTipo.SelectedItem.Equals("Proveedor") && (checkBoxHabilitar.Checked == true))
+                {
+                    if (SocioLogica.CrearProveedor(Nombre, Codigo, IdCuenta, TipoSocio, NombreUsuario, Password, Email))
+                        MessageBox.Show("Creación exitosa de socio", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Creación fallida de socio. Verifique la completitud de los datos requeridos", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
-                    MessageBox.Show("Creación fallida de socio. Verifique la completitud de los datos requeridos", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    if (SocioLogica.CrearSocio(Nombre, Codigo, IdCuenta, TipoSocio))
+                        MessageBox.Show("Creación exitosa de socio", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Creación fallida de socio. Verifique la completitud de los datos requeridos", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Creación fallida de socio. Verifique la completitud de los datos requeridos", "Creación de Socios", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+        }
 
+        private void comboBoxTipo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipo.SelectedItem.Equals("Proveedor"))
+                groupBoxProveedor.Enabled = true;
+            else
+                groupBoxProveedor.Enabled = false;
         }
     }
 }

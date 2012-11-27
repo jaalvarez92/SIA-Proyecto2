@@ -31,6 +31,13 @@ namespace Logica.ModuloClientes
             return (Boolean)result.Get("estado");
         }
 
+
+        public static Boolean CrearProveedor(String pNombre, String pCodigo, int pIdCuenta, int pIdTipoSocio, String pNombreUsuario, String pPassword, String pCorreo)
+        {
+            Entity result = SociosDA.CrearProveedor(pNombre, pCodigo, pIdCuenta, pIdTipoSocio, pNombreUsuario, pPassword, pCorreo);
+            return (Boolean)result.Get("estado");
+        }
+
         public static Entities ObtenerSocio(String pCodigo)
         {
             return SociosDA.ObtenerSocio(pCodigo);
