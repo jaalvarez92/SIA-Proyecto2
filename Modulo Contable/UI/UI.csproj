@@ -76,6 +76,18 @@
     <Compile Include="ModuloClientes\MenuModuloClientes.Designer.cs">
       <DependentUpon>MenuModuloClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuloCompras\FacturasSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloCompras\FacturasSocio.Designer.cs">
+      <DependentUpon>FacturasSocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloCompras\Formulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloCompras\Formulario.Designer.cs">
+      <DependentUpon>Formulario.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModuloContabilidad\ActualizarTipoCambio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloClientes\MenuModuloClientes.resx">
       <DependentUpon>MenuModuloClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloCompras\FacturasSocio.resx">
+      <DependentUpon>FacturasSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModuloCompras\Formulario.resx">
+      <DependentUpon>Formulario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModuloContabilidad\ActualizarTipoCambio.resx">
       <DependentUpon>ActualizarTipoCambio.cs</DependentUpon>
@@ -331,7 +349,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModuloAdministrativo\" />
-    <Folder Include="ModuloCompras\" />
     <Folder Include="ModuloVentas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

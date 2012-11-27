@@ -138,5 +138,12 @@ namespace UI
         }
         #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ModuloComprasVentas.Formulario form = new ModuloComprasVentas.Formulario();
+            this.Hide();
+            form.Show(this);
+        }
+
     }
 }

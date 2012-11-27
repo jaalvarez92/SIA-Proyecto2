@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Configuracion.cs" />
     <Compile Include="ModuloClientes\SocioDA.cs" />
+    <Compile Include="ModuloCompras\AccesoDatos.cs" />
+    <Compile Include="ModuloCompras\AccesoDatosCV.cs" />
     <Compile Include="ModuloCompras\ComprasDA.cs" />
     <Compile Include="ModuloContabilidad\AsientoDA.cs" />
     <Compile Include="ModuloContabilidad\CuentaDA.cs" />
