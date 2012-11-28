@@ -229,17 +229,7 @@ namespace Logica.ModuloCompras
             if (TipoDocumento == EntradaMercaderia || TipoDocumento == EntregaMercaderia)
                 asiento = true;
 
-              SqlDataReader lector = AccesoDatosCV.ingresarEncabezadoDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, IdDocumentoPrevio, abierto, Automatico, IdEmpresa, IdMoneda);
-
-              if (lector.Read())
-              {
-                  retorno = lector.GetInt32(0);
-
-              }
-              else
-              {
-                  return -1;
-              }
+              retorno = AccesoDatosCV.ingresarEncabezadoDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, IdDocumentoPrevio, abierto, Automatico, IdEmpresa, IdMoneda);
 
 
             if (asiento)

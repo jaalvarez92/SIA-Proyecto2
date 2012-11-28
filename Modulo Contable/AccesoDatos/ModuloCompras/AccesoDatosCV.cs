@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
+using AccesoDatosInventario;
 
 namespace AccesoDatos.ModuloCompras
 {
@@ -11,7 +12,7 @@ namespace AccesoDatos.ModuloCompras
     {
         #region metodos
 
-        public static SqlDataReader ingresarEncabezadoDocumento(int IdSocio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Abierto, Boolean Automatico, int IdEmpresa, int IdMoneda)
+        public static int ingresarEncabezadoDocumento(int IdSocio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Abierto, Boolean Automatico, int IdEmpresa, int IdMoneda)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             int valorRetorno;
@@ -51,10 +52,33 @@ namespace AccesoDatos.ModuloCompras
                 param.Value = IdMoneda;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
-                lectorSQL = execproc.ExecuteReader();
-                return lectorSQL;
+                execproc.ExecuteReader();
+                execproc.Connection.Close();
+                return salvaTandas();
             }
-            catch (Exception sqle) { return null; }
+            catch (Exception sqle) { return -1; }
+        }
+
+        public static int salvaTandas() 
+        {
+            AccesoDatosInventario.DataAccess acceso = new DataAccess();
+            DataSet data = acceso.ExecuteQuery("SP_SALVA_TANDAS",new List<SqlParameter>());
+            return int.Parse(data.Tables[0].Rows[0][0].ToString());
+
+             /*SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            int valorRetorno;
+            SqlDataReader lectorSQL;
+            try
+            {
+                SqlCommand execproc = new SqlCommand(, DataConnection);
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                SqlDataReader LECTOR = execproc.ExecuteReader();
+                int idOut = LECTOR.GetInt32(0);
+                //valorRetorno = (int)execproc.Parameters["@IdDocumento"].Value;
+                return idOut;
+            }
+            catch (Exception sqle) { return -1; }*/
         }
 
         public static Boolean ingresarLineaDetalleDocumentoOrdenCompra(int IdDocumento, int IdBodega, int Articulo, int Cantidad, Decimal Precio, string Descricpion, Decimal Impuesto, int IdEmpresa, int IdMoneda, int IdAsiento)

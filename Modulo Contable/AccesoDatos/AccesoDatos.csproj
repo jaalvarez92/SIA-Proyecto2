@@ -60,6 +60,10 @@
     <Compile Include="XMLLoader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatosInventario\AccesoDatosInventario.csproj">
+      <Project>{20AB6B99-61D5-49A1-B46A-23C5D6B2E065}</Project>
+      <Name>AccesoDatosInventario</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{CC3AA755-6457-4562-B35C-73DD4105A28D}</Project>
       <Name>Entidades</Name>
