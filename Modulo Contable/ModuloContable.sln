@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pruebas", "Pruebas\Pruebas.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitarios", "Utilitarios\Utilitarios.csproj", "{8860A62A-FEEC-497E-9911-9E2C67CE6598}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFRestServicio", "WcfRestServiceModulo\WCFRestServicio.csproj", "{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = ModuloContable.vsmdi
@@ -156,6 +158,16 @@ Global
 		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8860A62A-FEEC-497E-9911-9E2C67CE6598}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5C60FF72-34B0-4A6C-88F6-F6E3BE137483}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
