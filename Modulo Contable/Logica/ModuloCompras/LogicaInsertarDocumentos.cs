@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using AccesoDatos.ModuloCompras;
 using Entidades;
+using Entidades.Documentos;
 using System.Data.SqlClient;
 
 namespace Logica.ModuloCompras
@@ -26,7 +27,7 @@ namespace Logica.ModuloCompras
         private static Entities _ListaDocumentoPrevio;
         private static List<String> _ListaDocumentoPrevioString;
         public static int banderaError;
-
+        public static Entity datosActuales;
         #endregion
 
         #region propiedades
@@ -143,23 +144,63 @@ namespace Logica.ModuloCompras
             set { _ListaDocumentoPrevioString = value; }
         }
 
+        public static int TipoAsientoEntradaMercaderia
+        {
+            get { return 4; }
+        }
+
+        public static int TipoAsientoFacturaProvedores
+        {
+            get { return 5; }
+        }
+
+        public static int TipoAsientoEntregaMercaderia
+        {
+            get { return 6; }
+        }
+
+        public static int TipoAsientoFacturaCliente
+        {
+            get { return 8; }
+        }
+
+        public static int TipoAsientoFacturaServicios
+        {
+            get { return 9; }
+        }
+
+        public static int TipoAsientoNotaCredito
+        {
+            get { return 10; }
+        }
+
+
         #endregion
 
         #region metodos
 
-
         public static int insertarDocumento(int Socio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Automatico, int IdEmpresa, int IdMoneda)
         {
+             datosActuales = new Entity();
             int IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
-            int IdDocumentoPrevio;
+            int IdDocumentoPrevio = (int)(ListaDocumentosPrevios.Get("numero", DocumentoPrevio).Get("id"));
+            datosActuales.Set("socio", Socio);
+            datosActuales.Set("tipodocumento", TipoDocumento);
+            datosActuales.Set("fecha1", Fecha1);
+            datosActuales.Set("fecha2", Fecha2);
+            datosActuales.Set("totalai", TotalAI);
+            datosActuales.Set("impuestos", Impuestos);
+            datosActuales.Set("automatico", Automatico);
+            datosActuales.Set("idempresa", IdEmpresa);
+            datosActuales.Set("idmoneda", IdMoneda);
+            Boolean abierto, asiento = false;
+            int retorno;
             if (DocumentoPrevio == 0)
             {
                 IdDocumentoPrevio = 0;
             }
             else
                 IdDocumentoPrevio = (int)(ListaDocumentosPrevios.Get("numero", DocumentoPrevio).Get("id"));
-            Boolean abierto, asiento = false;
-            int retorno;
             if (TipoDocumento == FacturaProvedores || TipoDocumento == FacturaCliente || TipoDocumento == NotaCredito || TipoDocumento == FacturaServicios)
             {
                 abierto = false;
@@ -173,17 +214,42 @@ namespace Logica.ModuloCompras
 
             retorno = AccesoDatosCV.ingresarEncabezadoDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, IdDocumentoPrevio, abierto, Automatico, IdEmpresa, IdMoneda);
 
+
             if (asiento)
-                IdAsientoActual = AccesoDatosCV.crearAsientoSinCuentas();
+            {
+                int tipoAsiento = 0;
+
+                if (TipoDocumento == EntradaMercaderia)
+                    tipoAsiento = TipoAsientoEntradaMercaderia;
+
+                if (TipoDocumento == EntregaMercaderia)
+                    tipoAsiento = TipoAsientoEntregaMercaderia;
+
+                if (TipoDocumento == FacturaCliente)
+                    tipoAsiento = TipoAsientoFacturaCliente;
+
+                if (TipoDocumento == FacturaProvedores)
+                    tipoAsiento = TipoAsientoFacturaProvedores;
+
+                if (TipoDocumento == NotaCredito)
+                    tipoAsiento = TipoAsientoNotaCredito;
+
+                if (TipoDocumento == FacturaServicios)
+                    tipoAsiento = TipoAsientoFacturaServicios;
+
+                IdAsientoActual = AccesoDatosCV.crearAsientoSinCuentas(tipoAsiento, Fecha1, retorno); //cambiar tipo documento
+            }
 
             return retorno; //ID del documento
         }
+                
 
         public static Boolean insertarLineaDetalleDocumento(int IdDocumento, String Bodega, String Articulo, int Cantidad, Decimal Precio, string Descricpion, Decimal Impuesto, int TipoDocumento, int IdEmpresa, int IdMoneda)
         {
             //revisar maximos y minimos
             int IdBodega = (int)(ListaBodegas.Get("nombre", Bodega).Get("id"));
             int IdArticulo = (int)(ListaArticulos.Get("nombre", Articulo).Get("id"));
+            Boolean resultado = false;
 
             if (TipoDocumento == OrdenCompra)
             {
@@ -203,16 +269,21 @@ namespace Logica.ModuloCompras
             if (TipoDocumento == OrdenVenta)
             {
                 return AccesoDatosCV.ingresarLineaDetalleDocumentoOrdenVenta(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto, IdEmpresa, IdMoneda, IdAsientoActual);
+
             }
 
             if (TipoDocumento == EntregaMercaderia)
             {
-                return AccesoDatosCV.ingresarLineaDetalleDocumentoEntregaMercaderia(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto, IdEmpresa, IdMoneda, IdAsientoActual);
+                resultado = AccesoDatosCV.ingresarLineaDetalleDocumentoEntregaMercaderia(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto, IdEmpresa, IdMoneda, IdAsientoActual);
+                verificarCantidadStock(IdBodega, IdArticulo, IdEmpresa);
+                return resultado;
             }
 
             if (TipoDocumento == FacturaCliente)
             {
-                return AccesoDatosCV.ingresarLineaDetalleDocumentoFacturaCliente(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto, IdEmpresa, IdMoneda, IdAsientoActual);
+                resultado = AccesoDatosCV.ingresarLineaDetalleDocumentoFacturaCliente(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto, IdEmpresa, IdMoneda, IdAsientoActual);
+                verificarCantidadStock(IdBodega, IdArticulo, IdEmpresa);
+                return resultado;
             }
 
             if (TipoDocumento == FacturaServicios)
@@ -227,6 +298,37 @@ namespace Logica.ModuloCompras
 
             return false;
         }
+
+
+        private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
+        {
+            SqlDataReader lectorSQL;
+            Documento DocumentoOrden = new Documento();
+            DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
+                try
+                {
+                    lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
+                    if (lectorSQL.HasRows)
+                    {
+                        banderaError = 0;
+                        while (lectorSQL.Read())
+                        {
+                            DocumentoOrden.TipoDocumento = OrdenCompra;
+                            DocumentoOrden.Fecha1 = lectorSQL.GetDateTime(1);
+                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(4);
+                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
+                            DetalleDocumento.Descripcion = lectorSQL.GetString(2);
+                            DetalleDocumento.Precio = lectorSQL.GetDecimal(4);
+                                /*NumeroDocumento, Fecha1, Articulo.Descripcion, DetalleDocumentoPorArticuloBodega.Cantidad,
+			   DetalleDocumentoPorArticuloBodega.Precio, Documento.Total*/
+                        }
+                    }
+                    else
+                        banderaError = 1;
+                }
+                catch (Exception ex) { return; }
+        }
+
 
         public static int obtenerNumeroDocumento(int TipoDoc)
         {

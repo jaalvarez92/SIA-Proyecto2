@@ -58,7 +58,8 @@ namespace UI.ModuloClientes
                 DateTime fecha = (DateTime)e.Get("fecha");
                 String tipo = (String)e.Get("tipodocumento");
                 Decimal total = (Decimal)e.Get("total");
-                dataGridViewDcoumentos.Rows.Add(fecha.ToString(), tipo, total.ToString(), "Consultar"); 
+                if ((tipo.Equals("Factura de Clientes")) || (tipo.Equals("Factura de Servicios")) || (tipo.Equals("Factura de Proveedores")) || (tipo.Equals("Nota de Credito")))
+                    dataGridViewDcoumentos.Rows.Add(fecha.ToString(), tipo, total.ToString(), "Consultar"); 
                 
             }
         }
