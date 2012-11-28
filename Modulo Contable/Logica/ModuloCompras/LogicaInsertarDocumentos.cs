@@ -27,6 +27,8 @@ namespace Logica.ModuloCompras
         private static Entities _ListaDocumentoPrevio;
         private static List<String> _ListaDocumentoPrevioString;
         public static int banderaError;
+        private static Entities _ListaCuentas;
+        private static List<String> _ListaCuentasNombres;
         public static Entity datosActuales;
         #endregion
 
@@ -99,6 +101,18 @@ namespace Logica.ModuloCompras
         {
             get { return _ListaArticulosNombres; }
             set { _ListaArticulosNombres = value; }
+        }
+
+        public static Entities ListaCuentas
+        {
+            get { return _ListaCuentas; }
+            set { _ListaCuentas = value; }
+        }
+
+        public static List<String> ListaCuentasNombres
+        {
+            get { return _ListaCuentasNombres; }
+            set { _ListaCuentasNombres = value; }
         }
 
         public static Entities ListaBodegas
@@ -182,8 +196,9 @@ namespace Logica.ModuloCompras
         public static int insertarDocumento(int Socio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Automatico, int IdEmpresa, int IdMoneda)
         {
              datosActuales = new Entity();
-            int IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
-            int IdDocumentoPrevio = (int)(ListaDocumentosPrevios.Get("numero", DocumentoPrevio).Get("id"));
+            int IdSocio = 0;
+            if(Socio!=-1)
+                IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
             datosActuales.Set("socio", Socio);
             datosActuales.Set("tipodocumento", TipoDocumento);
             datosActuales.Set("fecha1", Fecha1);
@@ -195,6 +210,7 @@ namespace Logica.ModuloCompras
             datosActuales.Set("idmoneda", IdMoneda);
             Boolean abierto, asiento = false;
             int retorno;
+            int IdDocumentoPrevio;
             if (DocumentoPrevio == 0)
             {
                 IdDocumentoPrevio = 0;
@@ -288,7 +304,9 @@ namespace Logica.ModuloCompras
 
             if (TipoDocumento == FacturaServicios)
             {
-                return AccesoDatosCV.ingresarLineaDetalleDocumentoFacturaServicios(IdDocumento, IdBodega, IdArticulo, Cantidad, Precio, Descricpion, Impuesto);
+
+                int IdCuenta = (int)(ListaCuentas.ElementAt(Cantidad).Get("id"));
+                return AccesoDatosCV.ingresarLineaDetalleDocumentoFacturaServicios(IdDocumento, Descricpion,IdCuenta, Precio, IdAsientoActual, IdEmpresa);
             }
 
             if (TipoDocumento == NotaCredito)
@@ -571,6 +589,35 @@ namespace Logica.ModuloCompras
             }
             catch (Exception ex) { return null; }
             return ListaDocumentoPrevioString;
+        }
+
+        public static List<String> obtenerCuentas()
+        {
+            _ListaCuentas = new Entities();
+            _ListaCuentasNombres = new List<String>();
+
+            SqlDataReader lectorSQL;
+            int cuenta;
+            try
+            {
+                lectorSQL = AccesoDatosCV.obtenerCuentas();
+                if (lectorSQL.HasRows)
+                {
+                    banderaError = 0;
+                    while (lectorSQL.Read())
+                    {
+                        cuenta = ListaCuentas.Count;
+                        ListaCuentas.Add(new Entity());
+                        ListaCuentas.ElementAt(cuenta).Set("id", lectorSQL.GetInt32(0));
+                        ListaCuentas.ElementAt(cuenta).Set("nombre", lectorSQL.GetString(1));
+                        ListaCuentasNombres.Add(lectorSQL.GetString(1));
+                    }
+                }
+                else
+                    banderaError = 1;
+            }
+            catch (Exception ex) { return null; }
+            return ListaCuentasNombres;
         }
 
         #endregion

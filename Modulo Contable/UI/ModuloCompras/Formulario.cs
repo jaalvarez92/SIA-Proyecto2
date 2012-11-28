@@ -61,7 +61,7 @@ namespace ModuloComprasVentas
                 comboBox2.DataSource = LogicaInsertarDocumentos.obtenerDocumentosPrevios(comboBox1.SelectedIndex + 1);
                 if (comboBox2.SelectedIndex == -1)
                 {
-                    MessageBox.Show("No existen documento previos para el tipo de documento previo seleccionado");
+                    MessageBox.Show("No existen documento previos para el tipo de documento previo seleccionado.");
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
                     this.Owner.Show();
@@ -180,7 +180,7 @@ namespace ModuloComprasVentas
         private void Crear_Click(object sender, EventArgs e)
         {
             int IdSocio = comboBoxSocios.SelectedIndex;
-            int TipoDocumento = comboBoxTipoDoc.SelectedIndex+1;
+            int TipoDocumento = comboBoxTipoDoc.SelectedIndex + 1;
             DateTime Fecha1 = dateTimePicker1.Value;
             DateTime Fecha2 = dateTimePicker2.Value;
             Decimal TotalAI = TotalAntesImpuestos;
@@ -190,21 +190,32 @@ namespace ModuloComprasVentas
                 DocumentoPrevio = 0;
             else
                 DocumentoPrevio = (int)comboBox2.SelectedValue;
-            int idDocumento = LogicaInsertarDocumentos.insertarDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, DocumentoPrevio, false, 1, idMonedaSocio);
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            int idDocumento;
+            if (!comboBoxTipoDoc.Text.Equals("Factura de Servicios"))
             {
-                String IdBodega = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[7]).Value.ToString();
-                String Articulo = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[0]).Value.ToString();
-                int Cantidad = Int32.Parse(((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[2]).Value.ToString());
-                Decimal Precio = Decimal.Parse(((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[4]).Value.ToString());
-                String Descricpion = ((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[1]).Value.ToString();
-                Decimal Impuesto = 0;
-
-                if (((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[5]).Value.ToString() == "IV")
+                idMonedaSocio = 2;
+                idDocumento = LogicaInsertarDocumentos.insertarDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, DocumentoPrevio, false, 1, idMonedaSocio);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    Impuesto = Decimal.Parse("0,13");
-                }     
-                LogicaInsertarDocumentos.insertarLineaDetalleDocumento(idDocumento, IdBodega, Articulo, Cantidad, Precio, Descricpion, Impuesto, TipoDocumento, 1, idMonedaSocio);
+                    String IdBodega = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[7]).Value.ToString();
+                    String Articulo = ((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[0]).Value.ToString();
+                    int Cantidad = Int32.Parse(((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[2]).Value.ToString());
+                    Decimal Precio = Decimal.Parse(((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[4]).Value.ToString());
+                    String Descricpion = ((DataGridViewTextBoxCell)dataGridView1.Rows[i].Cells[1]).Value.ToString();
+                    Decimal Impuesto = 0;
+
+                    if (((DataGridViewComboBoxCell)dataGridView1.Rows[i].Cells[5]).Value.ToString() == "IV")
+                    {
+                        Impuesto = Decimal.Parse("0,13");
+                    }
+                    LogicaInsertarDocumentos.insertarLineaDetalleDocumento(idDocumento, IdBodega, Articulo, Cantidad, Precio, Descricpion, Impuesto, TipoDocumento, 1, idMonedaSocio);
+                }
+            }
+            else
+            {
+                idMonedaSocio = 2;
+                idDocumento = LogicaInsertarDocumentos.insertarDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, DocumentoPrevio, false, 1, idMonedaSocio);
+                LogicaInsertarDocumentos.insertarLineaDetalleDocumento(idDocumento,"", "", comboBoxCuentas.SelectedIndex,decimal.Parse(textBoxMonto.Text),textBoxDescripcion.Text,0,0,1,idMonedaSocio);
             }
             MessageBox.Show("Documento Creado");
             this.Owner.Show();
@@ -225,6 +236,13 @@ namespace ModuloComprasVentas
                 panel.Hide();
                 botonAgregarLinea.Visible = false;
                 panelServicios.Show();
+                comboBox1.Enabled = false;
+                comboBox2.Enabled = false;
+                comboBoxSocios.Enabled = false;
+                textBoxDescripcion.Enabled = true;
+                comboBoxCuentas.Enabled = true;
+                textBoxMonto.Enabled = true;
+                comboBoxCuentas.DataSource = LogicaInsertarDocumentos.obtenerCuentas();
             }
             else
             {
