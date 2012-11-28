@@ -255,14 +255,24 @@ namespace AccesoDatos.ModuloCompras
             return true;
         }
 
-        public static int crearAsientoSinCuentas()
+        public static int crearAsientoSinCuentas(int IdTipoAsiento, DateTime FechaDoc, int NumDoc)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             int valorRetorno;
             try
             {
                 SqlCommand execproc = new SqlCommand("SP_CREAR_ASIENTO_SINCUENTAS", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
+                SqlParameter param = execproc.Parameters.Add("@pIdTipoAsiento", SqlDbType.Int);
+                param.Value = IdTipoAsiento;
+                param = execproc.Parameters.Add("@pFechaContabilizado", SqlDbType.DateTime);
+                param.Value = DateTime.Now;
+                param = execproc.Parameters.Add("@pFechaDocumento", SqlDbType.DateTime);
+                param.Value = FechaDoc;
+                param = execproc.Parameters.Add("@pReferencia1", SqlDbType.VarChar, 100);
+                param.Value = NumDoc;
+                param = execproc.Parameters.Add("@pReferencia2", SqlDbType.VarChar, 100);
+                param.Value = "";
+                param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
                 param.Direction = ParameterDirection.ReturnValue;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
@@ -426,5 +436,10 @@ namespace AccesoDatos.ModuloCompras
 
         #endregion
 
+
+        public static SqlDataReader verificarCantidadArticulo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
