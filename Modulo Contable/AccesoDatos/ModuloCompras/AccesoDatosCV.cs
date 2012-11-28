@@ -11,10 +11,11 @@ namespace AccesoDatos.ModuloCompras
     {
         #region metodos
 
-        public static int ingresarEncabezadoDocumento(int IdSocio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Abierto, Boolean Automatico, int IdEmpresa, int IdMoneda)
+        public static SqlDataReader ingresarEncabezadoDocumento(int IdSocio, int TipoDocumento, DateTime Fecha1, DateTime Fecha2, Decimal TotalAI, Decimal Impuestos, int DocumentoPrevio, Boolean Abierto, Boolean Automatico, int IdEmpresa, int IdMoneda)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             int valorRetorno;
+            SqlDataReader lectorSQL;
             try
             {
                 SqlCommand execproc = new SqlCommand("SP_INSERTAR_ENCABEZADO", DataConnection);
@@ -48,15 +49,12 @@ namespace AccesoDatos.ModuloCompras
                 param.Value = IdEmpresa;
                 param = execproc.Parameters.Add("@IdMoneda", SqlDbType.Int);
                 param.Value = IdMoneda;
-                param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
-                param.Direction = ParameterDirection.ReturnValue;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
-                execproc.ExecuteReader();
-                valorRetorno = (int)execproc.Parameters["@ValorRetorno"].Value;
+                lectorSQL = execproc.ExecuteReader();
+                return lectorSQL;
             }
-            catch (Exception sqle) { valorRetorno = -1; }
-            return valorRetorno;
+            catch (Exception sqle) { return null; }
         }
 
         public static Boolean ingresarLineaDetalleDocumentoOrdenCompra(int IdDocumento, int IdBodega, int Articulo, int Cantidad, Decimal Precio, string Descricpion, Decimal Impuesto, int IdEmpresa, int IdMoneda, int IdAsiento)

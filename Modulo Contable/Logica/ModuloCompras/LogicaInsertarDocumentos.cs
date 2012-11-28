@@ -5,6 +5,7 @@ using System.Text;
 using AccesoDatos.ModuloCompras;
 using Entidades;
 using Entidades.Documentos;
+using Utilitarios;
 using System.Data.SqlClient;
 
 namespace Logica.ModuloCompras
@@ -228,7 +229,17 @@ namespace Logica.ModuloCompras
             if (TipoDocumento == EntradaMercaderia || TipoDocumento == EntregaMercaderia)
                 asiento = true;
 
-            retorno = AccesoDatosCV.ingresarEncabezadoDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, IdDocumentoPrevio, abierto, Automatico, IdEmpresa, IdMoneda);
+              SqlDataReader lector = AccesoDatosCV.ingresarEncabezadoDocumento(IdSocio, TipoDocumento, Fecha1, Fecha2, TotalAI, Impuestos, IdDocumentoPrevio, abierto, Automatico, IdEmpresa, IdMoneda);
+
+              if (lector.Read())
+              {
+                  retorno = lector.GetInt32(0);
+
+              }
+              else
+              {
+                  return -1;
+              }
 
 
             if (asiento)
@@ -332,13 +343,14 @@ namespace Logica.ModuloCompras
                         while (lectorSQL.Read())
                         {
                             DocumentoOrden.TipoDocumento = OrdenCompra;
+                            DetalleDocumento.NumeroDocumento = lectorSQL.GetInt32(0);
                             DocumentoOrden.Fecha1 = lectorSQL.GetDateTime(1);
-                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(4);
-                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
+                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(5);
                             DetalleDocumento.Descripcion = lectorSQL.GetString(2);
+                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
                             DetalleDocumento.Precio = lectorSQL.GetDecimal(4);
-                                /*NumeroDocumento, Fecha1, Articulo.Descripcion, DetalleDocumentoPorArticuloBodega.Cantidad,
-			   DetalleDocumentoPorArticuloBodega.Precio, Documento.Total*/
+                            Email email = new Email();
+                            email.EnviarCorreo(lectorSQL.GetString(6), DocumentoOrden, DetalleDocumento);
                         }
                     }
                     else

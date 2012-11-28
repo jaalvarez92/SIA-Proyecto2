@@ -66,6 +66,10 @@
       <Project>{CC3AA755-6457-4562-B35C-73DD4105A28D}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilitarios\Utilitarios.csproj">
+      <Project>{8860A62A-FEEC-497E-9911-9E2C67CE6598}</Project>
+      <Name>Utilitarios</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModuloAdministrativo\" />
