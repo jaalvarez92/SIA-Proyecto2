@@ -21,6 +21,7 @@ namespace ModuloComprasVentas
         String MonedaSocio = "";
         List<String> ListaArticulos = new List<string>();
         bool evento = true;
+        bool eventoBox = false;
         #endregion
 
         #region inicializacion
@@ -54,8 +55,23 @@ namespace ModuloComprasVentas
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.DataSource = null;
-            comboBox2.DataSource = LogicaInsertarDocumentos.obtenerDocumentosPrevios(comboBox1.SelectedIndex + 1);
+            if (eventoBox == true)
+            {
+                comboBox2.DataSource = null;
+                comboBox2.DataSource = LogicaInsertarDocumentos.obtenerDocumentosPrevios(comboBox1.SelectedIndex + 1);
+                if (comboBox2.SelectedIndex == -1)
+                {
+                    MessageBox.Show("No existen documento previos para el tipo de documento previo seleccionado");
+                    comboBox1.Enabled = false;
+                    comboBox2.Enabled = false;
+                    this.Owner.Show();
+                    this.Owner.Refresh();
+                    this.Close();
+                }
+            }
+
+
+            eventoBox = false;
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,6 +206,10 @@ namespace ModuloComprasVentas
                 }     
                 LogicaInsertarDocumentos.insertarLineaDetalleDocumento(idDocumento, IdBodega, Articulo, Cantidad, Precio, Descricpion, Impuesto, TipoDocumento, 1, idMonedaSocio);
             }
+            MessageBox.Show("Documento Creado");
+            this.Owner.Show();
+            this.Owner.Refresh();
+            this.Close();
         }
 
 
@@ -210,6 +230,46 @@ namespace ModuloComprasVentas
             {
                 panelServicios.Hide();
                 panel.Show();
+                List<string> ListaComboBox = new List<string>();
+                if (comboBoxTipoDoc.Text == "Orden de Compra" || comboBoxTipoDoc.Text == "Orden de Venta")
+                {
+                    comboBox1.Enabled = false;
+                    comboBox2.Enabled = false;
+                }
+                else if (comboBoxTipoDoc.Text == "Entrada de Mercancías")
+                {
+                    comboBox1.Enabled = true;
+                    ListaComboBox.Add("Orden de Compra");
+                    comboBox1.DataSource = ListaComboBox;
+                }
+                else if (comboBoxTipoDoc.Text == "Entrega de Mercancías")
+                {
+                    comboBox1.Enabled = true;
+                    ListaComboBox.Add("Orden de Venta");
+                    comboBox1.DataSource = ListaComboBox;
+                }
+                else if (comboBoxTipoDoc.Text == "Factura de Proveedores")
+                {
+                    comboBox1.Enabled = true;
+                    ListaComboBox.Add("Entrada de Mercancías");
+                    ListaComboBox.Add("Orden de Compra");
+                    comboBox1.DataSource = ListaComboBox;
+                }
+                else if (comboBoxTipoDoc.Text == "Factura de Clientes")
+                {
+                    comboBox1.Enabled = true;
+                    ListaComboBox.Add("Entrega de Mercancías");
+                    ListaComboBox.Add("Orden de Venta");
+                    comboBox1.DataSource = ListaComboBox;
+                }
+                else if (comboBoxTipoDoc.Text == "Notas de Crédito")
+                {
+                    comboBox1.Enabled = true;
+                    ListaComboBox.Add("Factura de Proveedores");
+                    ListaComboBox.Add("Factura de Clientes");
+                    comboBox1.DataSource = ListaComboBox;
+                }
+                eventoBox = true;
                 int TipoDoc = comboBoxTipoDoc.SelectedIndex + 1;
                 textBoxNumDoc.Text = (LogicaInsertarDocumentos.obtenerNumeroDocumento(TipoDoc)).ToString();
                 obtenerSocios();
