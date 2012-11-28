@@ -222,6 +222,70 @@ namespace Logica.ModuloInventario
         }
 
 
+
+        public List<String> obtenerArticulos2()
+        {
+            var result = _Data.ExecuteQuery("SP_OBTENER_ARTICULOS", new List<SqlParameter>()
+            {
+            });
+
+            List<String> lstArticulos = new List<String>();
+            if (result != null && result.Tables != null && result.Tables[0] != null && result.Tables[0].Rows != null)
+            {
+                foreach (DataRow fila in result.Tables[0].Rows)
+                {
+                    lstArticulos.Add(fila["Descripcion"].ToString());
+                }
+
+                return lstArticulos;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+
+        public Articulo obtenerArticuloXNombre(String pNombre)
+        {
+            var result = _Data.ExecuteQuery("SP_OBTENER_ARTICULO_X_NOMBRE", new List<SqlParameter>()
+            {
+                new SqlParameter("@pNombre",pNombre)
+            });
+
+            Articulo respuesta = new Articulo();
+            if (result != null && result.Tables != null && result.Tables[0] != null && result.Tables[0].Rows != null)
+            {
+                foreach (DataRow fila in result.Tables[0].Rows)
+                {
+                    respuesta = new Articulo()
+                    {
+                        IdArticulo = Convert.ToInt32(fila["IdArticulo"].ToString()),
+                        Codigo = fila["Codigo"].ToString(),
+                        Descripcion = fila["Descripcion"].ToString(),
+                        UnidadMedida = fila["UnidadMedida"].ToString(),
+                        Comentario = fila["Comentarios"].ToString(),
+                        Foto = (byte[])fila["Foto"],
+                        Precio = Convert.ToDecimal(fila["Precio"].ToString()),
+                        Comprometido = Convert.ToInt32(fila["Comprometido"].ToString()),
+                        Stock = Convert.ToInt32(fila["Stock"].ToString()),
+                        Solicitado = Convert.ToInt32(fila["Solicitado"].ToString()),
+                        Disponible = Convert.ToInt32(fila["Disponible"].ToString()),
+                        Costo = Convert.ToDecimal(fila["CostoUnitario"].ToString()),
+                        IdBodega = Convert.ToInt32(fila["Fk_idBodega"].ToString())
+
+                    };
+                }
+
+                return respuesta;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         #region Singleton
         private static volatile ArticuloLogica instancia;
         private static object syncRoot = new Object();

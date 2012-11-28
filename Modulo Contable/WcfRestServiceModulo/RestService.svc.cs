@@ -30,5 +30,26 @@ namespace WcfRestServiceEncuestas
         {
             return ArticuloLogica.Instancia.obtenerArticulos();
         }
+
+
+        public List<String> obtenerArticulos2()
+        {
+            return ArticuloLogica.Instancia.obtenerArticulos2();
+        }
+
+
+        public Articulo obtenerArticuloXNombre(String pNombre)
+        {
+            return ArticuloLogica.Instancia.obtenerArticuloXNombre(pNombre);
+        }
+        
+
+        public string holaMundo()
+        {
+            return "Hola Mundo";
+        }
+
+
+
     }
 }

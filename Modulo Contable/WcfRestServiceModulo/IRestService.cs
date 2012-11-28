@@ -12,22 +12,38 @@ using Entidades.Documentos;
 namespace WcfRestServiceEncuestas
 {
 
-    [ServiceContract]
+   [ServiceContract(Name = "RestAndroid")]
     public interface IRestService
     {
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "obtenerArticulos")]
+            UriTemplate = "/obtenerArticulos")]
         List<Articulo> obtenerArticulos();
+
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/obtenerArticulos2")]
+        List<String> obtenerArticulos2();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/obtenerArticuloXNombre/{pNombre}")
+            ]
+        Articulo obtenerArticuloXNombre(String pNombre);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "insertarDocumento")]
+            UriTemplate = "/insertarDocumento")]
         bool insertarDocumento(Documento pDocumento);
 
         [OperationContract]
@@ -35,7 +51,18 @@ namespace WcfRestServiceEncuestas
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "insertarDocumentoDetalle")]
+            UriTemplate = "/insertarDocumentoDetalle")]
         bool insertarDocumentoDetalle(DocumentoDetalle pDocumentoDetalle);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "/holaMundo")]
+        string holaMundo();
+
+
+
     }
 }
