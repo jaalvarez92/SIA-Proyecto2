@@ -239,9 +239,9 @@ namespace ModuloComprasVentas
                 comboBox1.Enabled = false;
                 comboBox2.Enabled = false;
                 comboBoxSocios.Enabled = false;
-                /*textBoxDescripcion.Enabled = true;
+                textBoxDescripcion.Enabled = true;
                 comboBoxCuentas.Enabled = true;
-                textBoxMonto.Enabled = true;*/
+                textBoxMonto.Enabled = true;
                 comboBoxCuentas.DataSource = LogicaInsertarDocumentos.obtenerCuentas();
             }
             else

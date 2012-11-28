@@ -55,6 +55,20 @@ namespace UI
             Inventarios.VInventarios ds = new Inventarios.VInventarios();
             ds.Show();
         }
+
+        private void buttonCompras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ModuloComprasVentas.Formulario form = new ModuloComprasVentas.Formulario();
+            form.Show(this);
+        }
         #endregion
+
+        private void buttonVentas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

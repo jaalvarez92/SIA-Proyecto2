@@ -38,7 +38,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonInventario = new System.Windows.Forms.Button();
             this.buttonAdministrativo = new System.Windows.Forms.Button();
-            this.buttonVentas = new System.Windows.Forms.Button();
             this.buttonClientes = new System.Windows.Forms.Button();
             this.buttonFinanzas = new System.Windows.Forms.Button();
             this.buttonCompras = new System.Windows.Forms.Button();
@@ -125,7 +124,6 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.buttonInventario);
             this.groupBox2.Controls.Add(this.buttonAdministrativo);
-            this.groupBox2.Controls.Add(this.buttonVentas);
             this.groupBox2.Controls.Add(this.buttonClientes);
             this.groupBox2.Controls.Add(this.buttonFinanzas);
             this.groupBox2.Controls.Add(this.buttonCompras);
@@ -166,20 +164,6 @@
             this.buttonAdministrativo.TabIndex = 17;
             this.buttonAdministrativo.Text = "Administrativo";
             this.buttonAdministrativo.UseVisualStyleBackColor = false;
-            // 
-            // buttonVentas
-            // 
-            this.buttonVentas.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVentas.ForeColor = System.Drawing.Color.White;
-            this.buttonVentas.Image = global::UI.Properties.Resources.calculator_edit;
-            this.buttonVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVentas.Location = new System.Drawing.Point(217, 105);
-            this.buttonVentas.Name = "buttonVentas";
-            this.buttonVentas.Size = new System.Drawing.Size(204, 34);
-            this.buttonVentas.TabIndex = 15;
-            this.buttonVentas.Text = "Ventas";
-            this.buttonVentas.UseVisualStyleBackColor = false;
             // 
             // buttonClientes
             // 
@@ -222,10 +206,11 @@
             this.buttonCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCompras.Location = new System.Drawing.Point(7, 107);
             this.buttonCompras.Name = "buttonCompras";
-            this.buttonCompras.Size = new System.Drawing.Size(204, 34);
+            this.buttonCompras.Size = new System.Drawing.Size(414, 34);
             this.buttonCompras.TabIndex = 5;
-            this.buttonCompras.Text = "Compras";
+            this.buttonCompras.Text = "Compras y Ventas";
             this.buttonCompras.UseVisualStyleBackColor = false;
+            this.buttonCompras.Click += new System.EventHandler(this.buttonCompras_Click);
             // 
             // buttonCerrarSesion
             // 
@@ -288,7 +273,6 @@
         private System.Windows.Forms.Button buttonCerrarSesion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClientes;
-        private System.Windows.Forms.Button buttonVentas;
         private System.Windows.Forms.Button buttonInventario;
         private System.Windows.Forms.Button buttonAdministrativo;
     }
