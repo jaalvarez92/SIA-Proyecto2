@@ -522,9 +522,30 @@ namespace AccesoDatos.ModuloCompras
         #endregion
 
 
-        public static SqlDataReader verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int p, int p_2)
+        public static SqlDataReader verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int IdMoneda, int IdSocio)
         {
-            throw new NotImplementedException();
+            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            SqlDataReader lectorSQL;
+            try
+            {
+                SqlCommand execproc = new SqlCommand("SP_VERIFICAR_CANTIDAD_ARTICULO", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
+                param.Value = Bodega;
+                param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
+                param.Value = Articulo;
+                param = execproc.Parameters.Add("@IdEmpresa", SqlDbType.Int);
+                param.Value = IdEmpresa;
+                param = execproc.Parameters.Add("@IdMoneda", SqlDbType.Int);
+                param.Value = IdMoneda;
+                param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = IdSocio;
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                lectorSQL = execproc.ExecuteReader();
+            }
+
+            catch (Exception sqle) { lectorSQL = null; }
+            return lectorSQL;
         }
     }
 }
