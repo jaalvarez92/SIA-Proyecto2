@@ -140,15 +140,6 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Orden de Compra",
-            "Entrada de Mercancías",
-            "Factura de Proveedores",
-            "Orden de Venta",
-            "Entrega de Mercancías",
-            "Factura de Clientes",
-            "Factura de Servicios",
-            "Notas de Crédito"});
             this.comboBox1.Location = new System.Drawing.Point(192, 200);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(197, 21);

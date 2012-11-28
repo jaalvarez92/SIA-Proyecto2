@@ -138,8 +138,31 @@ namespace AccesoDatos.ModuloCompras
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             try
             {
-                SqlCommand execproc = new SqlCommand("SP_INSERTAR_DETALLE_FACTURA_PROVEDORES", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                SqlCommand execproc = new SqlCommand("SP_CREAR_FACTURA_PROVEEDORES", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdDocumento", SqlDbType.Int);
+                param.Value = IdDocumento;
+                param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
+                param.Value = Articulo;
+                param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
+                param.Value = IdBodega;
+                param = execproc.Parameters.Add("@Cantidad", SqlDbType.Int);
+                param.Value = Cantidad;
+                param = execproc.Parameters.Add("@Descripcion", SqlDbType.VarChar, 100);
+                param.Value = Descricpion;
+                param = execproc.Parameters.Add("@Precio", SqlDbType.Decimal);
+                param.Value = Precio;
+                param.Precision = 20;
+                param.Scale = 4;
+                param = execproc.Parameters.Add("@Impuestos", SqlDbType.Decimal);
+                param.Value = Impuesto;
+                param.Precision = 20;
+                param.Scale = 4;
+                param = execproc.Parameters.Add("@idAsiento", SqlDbType.Int);
+                param.Value = IdAsiento;
+                param = execproc.Parameters.Add("@idEmpresa", SqlDbType.Int);
+                param.Value = IdEmpresa;
+                param = execproc.Parameters.Add("@idmonedaArticulo", SqlDbType.Int);
+                param.Value = IdMoneda;
             }
             catch (Exception sqle) { return false; }
             return true;
@@ -224,8 +247,31 @@ namespace AccesoDatos.ModuloCompras
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             try
             {
-                SqlCommand execproc = new SqlCommand("SP_INSERTAR_DETALLE_FACTURA_CLIENTE", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                SqlCommand execproc = new SqlCommand("SP_CREAR_FACTURA_CLIENTES", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdDocumento", SqlDbType.Int);
+                param.Value = IdDocumento;
+                param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
+                param.Value = Articulo;
+                param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
+                param.Value = IdBodega;
+                param = execproc.Parameters.Add("@Cantidad", SqlDbType.Int);
+                param.Value = Cantidad;
+                param = execproc.Parameters.Add("@Descripcion", SqlDbType.VarChar, 100);
+                param.Value = Descricpion;
+                param = execproc.Parameters.Add("@Precio", SqlDbType.Decimal);
+                param.Value = Precio;
+                param.Precision = 20;
+                param.Scale = 4;
+                param = execproc.Parameters.Add("@Impuestos", SqlDbType.Decimal);
+                param.Value = Impuesto;
+                param.Precision = 20;
+                param.Scale = 4;
+                param = execproc.Parameters.Add("@idAsiento", SqlDbType.Int);
+                param.Value = IdAsiento;
+                param = execproc.Parameters.Add("@idEmpresa", SqlDbType.Int);
+                param.Value = IdEmpresa;
+                param = execproc.Parameters.Add("@idMoneda", SqlDbType.Int);
+                param.Value = IdMoneda;
             }
             catch (Exception sqle) { return false; }
             return true;
@@ -255,24 +301,14 @@ namespace AccesoDatos.ModuloCompras
             return true;
         }
 
-        public static int crearAsientoSinCuentas(int IdTipoAsiento, DateTime FechaDoc, int NumDoc)
+        public static int crearAsientoSinCuentas()
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
             int valorRetorno;
             try
             {
                 SqlCommand execproc = new SqlCommand("SP_CREAR_ASIENTO_SINCUENTAS", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@pIdTipoAsiento", SqlDbType.Int);
-                param.Value = IdTipoAsiento;
-                param = execproc.Parameters.Add("@pFechaContabilizado", SqlDbType.DateTime);
-                param.Value = DateTime.Now;
-                param = execproc.Parameters.Add("@pFechaDocumento", SqlDbType.DateTime);
-                param.Value = FechaDoc;
-                param = execproc.Parameters.Add("@pReferencia1", SqlDbType.VarChar, 100);
-                param.Value = NumDoc;
-                param = execproc.Parameters.Add("@pReferencia2", SqlDbType.VarChar, 100);
-                param.Value = "";
-                param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
+                SqlParameter param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
                 param.Direction = ParameterDirection.ReturnValue;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
@@ -282,6 +318,7 @@ namespace AccesoDatos.ModuloCompras
             catch (Exception sqle) { valorRetorno = -1; }
             return valorRetorno;
         }
+
 
         public static SqlDataReader obtenerNumeroDocumento(int TipoDoc)
         {
@@ -317,6 +354,7 @@ namespace AccesoDatos.ModuloCompras
             catch (Exception sqle) { lectorSQL = null; }
             return lectorSQL;
         }
+
 
         public static SqlDataReader obtenerClientes()
         {
@@ -372,6 +410,7 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
+
         public static SqlDataReader obtenerMoneda(int pSocio)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
@@ -408,6 +447,7 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
+
         public static SqlDataReader obtenerDocumentosPrevios(int IdDocumentoPrevio, int IdTipoDocumentoPrevio, int IdSocio)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
@@ -430,32 +470,7 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
-        public static SqlDataReader verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int IdMoneda, int IdSocio)
-        {
-            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
-            SqlDataReader lectorSQL;
-            try
-            {
-                SqlCommand execproc = new SqlCommand("SP_VERIFICAR_CANTIDAD_ARTICULO", DataConnection);
-                SqlParameter param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
-                param.Value = Bodega;
-                param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
-                param.Value = Articulo;
-                param = execproc.Parameters.Add("@IdEmpresa", SqlDbType.Int);
-                param.Value = IdEmpresa;
-                param = execproc.Parameters.Add("@IdMoneda", SqlDbType.Int);
-                param.Value = IdMoneda;
-                param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
-                param.Value = IdSocio;
-                execproc.CommandType = CommandType.StoredProcedure;
-                execproc.Connection.Open();
-                lectorSQL = execproc.ExecuteReader();
-            }
-
-            catch (Exception sqle) { lectorSQL = null; }
-            return lectorSQL;
-        }
-
         #endregion
+
     }
 }
