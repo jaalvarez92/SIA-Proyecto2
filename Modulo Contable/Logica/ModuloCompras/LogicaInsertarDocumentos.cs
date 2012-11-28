@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using AccesoDatos.ModuloCompras;
 using Entidades;
+using Entidades.Documentos;
 using System.Data.SqlClient;
 
 namespace Logica.ModuloCompras
@@ -301,7 +302,31 @@ namespace Logica.ModuloCompras
 
         private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
         {
-            SqlDataReader lectorSQL = AccesoDatosCV.verificarCantidadArticulo();
+            SqlDataReader lectorSQL;
+            Documento DocumentoOrden = new Documento();
+            DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
+                try
+                {
+                    lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
+                    if (lectorSQL.HasRows)
+                    {
+                        banderaError = 0;
+                        while (lectorSQL.Read())
+                        {
+                            DocumentoOrden.TipoDocumento = OrdenCompra;
+                            DocumentoOrden.Fecha1 = lectorSQL.GetDateTime(1);
+                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(4);
+                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
+                            DetalleDocumento.Descripcion = lectorSQL.GetString(2);
+                            DetalleDocumento.Precio = lectorSQL.GetDecimal(4);
+                                /*NumeroDocumento, Fecha1, Articulo.Descripcion, DetalleDocumentoPorArticuloBodega.Cantidad,
+			   DetalleDocumentoPorArticuloBodega.Precio, Documento.Total*/
+                        }
+                    }
+                    else
+                        banderaError = 1;
+                }
+                catch (Exception ex) { return; }
         }
 
 

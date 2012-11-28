@@ -283,7 +283,6 @@ namespace AccesoDatos.ModuloCompras
             return valorRetorno;
         }
 
-
         public static SqlDataReader obtenerNumeroDocumento(int TipoDoc)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
@@ -318,7 +317,6 @@ namespace AccesoDatos.ModuloCompras
             catch (Exception sqle) { lectorSQL = null; }
             return lectorSQL;
         }
-
 
         public static SqlDataReader obtenerClientes()
         {
@@ -374,7 +372,6 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
-
         public static SqlDataReader obtenerMoneda(int pSocio)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
@@ -411,7 +408,6 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
-
         public static SqlDataReader obtenerDocumentosPrevios(int IdDocumentoPrevio, int IdTipoDocumentoPrevio, int IdSocio)
         {
             SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
@@ -434,12 +430,32 @@ namespace AccesoDatos.ModuloCompras
             return lectorSQL;
         }
 
-        #endregion
-
-
-        public static SqlDataReader verificarCantidadArticulo()
+        public static SqlDataReader verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int IdMoneda, int IdSocio)
         {
-            throw new NotImplementedException();
+            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            SqlDataReader lectorSQL;
+            try
+            {
+                SqlCommand execproc = new SqlCommand("SP_VERIFICAR_CANTIDAD_ARTICULO", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
+                param.Value = Bodega;
+                param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
+                param.Value = Articulo;
+                param = execproc.Parameters.Add("@IdEmpresa", SqlDbType.Int);
+                param.Value = IdEmpresa;
+                param = execproc.Parameters.Add("@IdMoneda", SqlDbType.Int);
+                param.Value = IdMoneda;
+                param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = IdSocio;
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                lectorSQL = execproc.ExecuteReader();
+            }
+
+            catch (Exception sqle) { lectorSQL = null; }
+            return lectorSQL;
         }
+
+        #endregion
     }
 }
