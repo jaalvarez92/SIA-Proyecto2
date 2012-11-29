@@ -201,7 +201,7 @@ namespace Logica.ModuloInventario
                         Descripcion = fila["Descripcion"].ToString(),
                         UnidadMedida = fila["UnidadMedida"].ToString(),
                         Comentario = fila["Comentarios"].ToString(),
-                        Foto = (byte[])fila["Foto"],
+                        //Foto = (byte[])fila["Foto"],
                         Precio = Convert.ToDecimal(fila["Precio"].ToString()),
                         Comprometido = Convert.ToInt32(fila["Comprometido"].ToString()),
                         Stock = Convert.ToInt32(fila["Stock"].ToString()),
