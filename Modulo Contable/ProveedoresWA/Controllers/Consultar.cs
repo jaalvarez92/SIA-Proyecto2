@@ -51,5 +51,12 @@ namespace ProveedoresWA.Controllers
             }
             return resultado.ToArray();
         }
+
+
+        [WebMethod]
+        public static Boolean convertirOrdenAFactura(int IdDocumento) 
+        {
+            return LogicaInsertarDocumentos.convertirOrdenAFactura(IdDocumento);
+        } 
     }
 }

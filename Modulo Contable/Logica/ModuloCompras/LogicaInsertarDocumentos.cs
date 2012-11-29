@@ -323,7 +323,6 @@ namespace Logica.ModuloCompras
 
         private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
         {
-            SqlDataReader lectorSQL;
             Documento DocumentoOrden = new Documento();
             DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
                 try
@@ -356,6 +355,7 @@ namespace Logica.ModuloCompras
                         }
                         else
                             banderaError = 1;
+
                 }
                 catch (Exception ex) { return; }
         }
@@ -634,5 +634,10 @@ namespace Logica.ModuloCompras
         }
 
         #endregion
+
+        public static Boolean convertirOrdenAFactura(int IdDocumento)
+        {
+            return AccesoDatosCV.convertirOrdenAFactura(IdDocumento);
+        }
     }
 }
