@@ -33,6 +33,8 @@ namespace Logica.ModuloCompras
         private static Entities _ListaCuentas;
         private static List<String> _ListaCuentasNombres;
         public static Entity datosActuales;
+        private static Entities _Documentos;
+        
         #endregion
 
         #region propiedades
@@ -191,6 +193,12 @@ namespace Logica.ModuloCompras
             get { return 10; }
         }
 
+
+        public static Entities Documentos
+        {
+            get { return LogicaInsertarDocumentos._Documentos; }
+            set { LogicaInsertarDocumentos._Documentos = value; }
+        }
 
         #endregion
 
@@ -638,6 +646,40 @@ namespace Logica.ModuloCompras
         public static Boolean convertirOrdenAFactura(int IdDocumento)
         {
             return AccesoDatosCV.convertirOrdenAFactura(IdDocumento);
+        }
+
+        public static void obtenerDocumentos(int pIndiceSocio, int p_2)
+        {
+            _Documentos = new Entities();
+            int idSocio = 0;
+            idSocio = (int)_ListaSocios.ElementAt(pIndiceSocio).Get("id");
+            SqlDataReader lectorSQL;
+            int cuenta;
+            try
+            {
+                lectorSQL = AccesoDatosCV.obtenerDocumentos(idSocio);
+                if (lectorSQL.HasRows)
+                {
+                    banderaError = 0;
+                    while (lectorSQL.Read())
+                    {
+                        cuenta = ListaCuentas.Count;
+                        _Documentos.Add(new Entity());
+                        _Documentos.ElementAt(cuenta).Set("id", lectorSQL.GetInt32(0));
+                        _Documentos.ElementAt(cuenta).Set("numero", lectorSQL.GetInt32(1));
+                        _Documentos.ElementAt(cuenta).Set("Fecha1", lectorSQL.GetDateTime(2));
+                        _Documentos.ElementAt(cuenta).Set("Fecha2", lectorSQL.GetDateTime(3));
+                        _Documentos.ElementAt(cuenta).Set("totalai", lectorSQL.GetDecimal(4));
+                        _Documentos.ElementAt(cuenta).Set("impuestos", lectorSQL.GetDecimal(5));
+                        _Documentos.ElementAt(cuenta).Set("total", lectorSQL.GetDecimal(6));
+                        cuenta++;
+                    }
+                }
+                else
+                    banderaError = 1;
+            }
+            catch (Exception ex) { return; }
+            return;
         }
     }
 }

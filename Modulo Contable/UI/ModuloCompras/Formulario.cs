@@ -334,6 +334,13 @@ namespace ModuloComprasVentas
 
         #endregion
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FacturasSocio nueva = new FacturasSocio();
+            this.Hide();
+            nueva.Show(this);
+        }
+
 
 
     }
