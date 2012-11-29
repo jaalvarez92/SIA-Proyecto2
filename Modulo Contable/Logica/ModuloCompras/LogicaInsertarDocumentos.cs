@@ -7,6 +7,7 @@ using Entidades;
 using Entidades.Documentos;
 using Utilitarios;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Logica.ModuloCompras
 {
@@ -200,7 +201,7 @@ namespace Logica.ModuloCompras
             int IdSocio = 0;
             if(Socio!=-1)
                 IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
-            datosActuales.Set("socio", Socio);
+            datosActuales.Set("socio", IdSocio);
             datosActuales.Set("tipodocumento", TipoDocumento);
             datosActuales.Set("fecha1", Fecha1);
             datosActuales.Set("fecha2", Fecha2);
@@ -321,30 +322,22 @@ namespace Logica.ModuloCompras
 
         private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
         {
-            SqlDataReader lectorSQL;
+            DataRow lectorSQL;
             Documento DocumentoOrden = new Documento();
             DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
                 try
                 {
                     lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
-                    if (lectorSQL.HasRows)
-                    {
-                        banderaError = 0;
-                        while (lectorSQL.Read())
-                        {
-                            DocumentoOrden.TipoDocumento = OrdenCompra;
-                            DetalleDocumento.NumeroDocumento = lectorSQL.GetInt32(0);
-                            DocumentoOrden.Fecha1 = lectorSQL.GetDateTime(1);
-                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(5);
-                            DetalleDocumento.Descripcion = lectorSQL.GetString(2);
-                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
-                            DetalleDocumento.Precio = lectorSQL.GetDecimal(4);
-                            Email email = new Email();
-                            email.EnviarCorreo(lectorSQL.GetString(6), DocumentoOrden, DetalleDocumento);
-                        }
-                    }
-                    else
-                        banderaError = 1;
+                    
+                    DocumentoOrden.TipoDocumento = OrdenCompra;
+                    DetalleDocumento.NumeroDocumento = int.Parse(lectorSQL[0].ToString());
+                    DocumentoOrden.Fecha1 = DateTime.Parse(lectorSQL[1].ToString());
+                    DocumentoOrden.TotalAI = Decimal.Parse(lectorSQL[5].ToString());
+                    DetalleDocumento.Descripcion = lectorSQL[2].ToString();
+                    DetalleDocumento.Cantidad = int.Parse(lectorSQL[3].ToString());
+                    DetalleDocumento.Precio = Decimal.Parse(lectorSQL[4].ToString());
+                    Email email = new Email();
+                    email.EnviarCorreo(lectorSQL[6].ToString(), DocumentoOrden, DetalleDocumento);
                 }
                 catch (Exception ex) { return; }
         }
@@ -623,5 +616,10 @@ namespace Logica.ModuloCompras
         }
 
         #endregion
+
+        public static Boolean convertirOrdenAFactura(int IdDocumento)
+        {
+            return AccesoDatosCV.convertirOrdenAFactura(IdDocumento);
+        }
     }
 }

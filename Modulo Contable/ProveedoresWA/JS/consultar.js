@@ -114,11 +114,23 @@ function cerrarSesion() {
 
 
 function facturarOrden(i) {
+    requestAjax('Consultar.aspx/convertirOrdenAFactura', procesarE22, procesarEError22,
+        {
+            'IdDocumento': i
+        });
+    
+}
+
+
+function procesarE22(data) {
     limpiarCampos();
     llenarOrdenes();
-} 
+}
 
-
+function procesarEError22(data) {
+    limpiarCampos();
+    llenarOrdenes();
+}
 /**
  * Paints a task button in the div which
  * name follows the patter 'task_{id}'
