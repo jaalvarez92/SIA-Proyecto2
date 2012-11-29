@@ -40,7 +40,7 @@ namespace WcfRestServiceEncuestas
 
         public Articulo obtenerArticuloXNombre(String pNombre)
         {
-            return ArticuloLogica.Instancia.obtenerArticuloXNombre(pNombre);
+            return ArticuloLogica.Instancia.obtenerArticuloXNombre(pNombre.Replace('-',' '));
         }
         
 

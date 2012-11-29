@@ -7,6 +7,7 @@ using Entidades;
 using Entidades.Documentos;
 using Utilitarios;
 using System.Data.SqlClient;
+using AccesoDatosInventario;
 using System.Data;
 
 namespace Logica.ModuloCompras
@@ -330,22 +331,39 @@ namespace Logica.ModuloCompras
 
         private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
         {
-            DataRow lectorSQL;
             Documento DocumentoOrden = new Documento();
             DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
                 try
                 {
-                    lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
+                    //lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
                     
-                    DocumentoOrden.TipoDocumento = OrdenCompra;
-                    DetalleDocumento.NumeroDocumento = int.Parse(lectorSQL[0].ToString());
-                    DocumentoOrden.Fecha1 = DateTime.Parse(lectorSQL[1].ToString());
-                    DocumentoOrden.TotalAI = Decimal.Parse(lectorSQL[5].ToString());
-                    DetalleDocumento.Descripcion = lectorSQL[2].ToString();
-                    DetalleDocumento.Cantidad = int.Parse(lectorSQL[3].ToString());
-                    DetalleDocumento.Precio = Decimal.Parse(lectorSQL[4].ToString());
-                    Email email = new Email();
-                    email.EnviarCorreo(lectorSQL[6].ToString(), DocumentoOrden, DetalleDocumento);
+                        DataAccess da = new DataAccess();
+                        DataSet lectorSQL2 = da.ExecuteQuery("SP_VERIFICAR_CANTIDAD_ARTICULO", new List<SqlParameter>()
+                        {
+                            new SqlParameter("@IdBodega",Bodega),
+                            new SqlParameter("@IdArticulo",Articulo),
+                            new SqlParameter("@IdEmpresa",IdEmpresa),
+                            new SqlParameter("@IdMoneda",(int)datosActuales.Get("idmoneda")),
+                            new SqlParameter("@IdSocio",(int)datosActuales.Get("socio"))
+
+                        });
+
+                        if (lectorSQL2.Tables.Count == 6)
+                        {
+                            DocumentoOrden.TipoDocumento = OrdenCompra;
+                            DetalleDocumento.NumeroDocumento = (int)lectorSQL2.Tables[5].Rows[0].ItemArray[0];
+                            DocumentoOrden.Fecha1 = (DateTime)lectorSQL2.Tables[5].Rows[0].ItemArray[1];
+                            DocumentoOrden.TotalAI = (Decimal)lectorSQL2.Tables[5].Rows[0].ItemArray[5];
+                            DetalleDocumento.Descripcion = (String)lectorSQL2.Tables[5].Rows[0].ItemArray[2];
+                            DetalleDocumento.Cantidad = (int)lectorSQL2.Tables[5].Rows[0].ItemArray[3];
+                            DetalleDocumento.Precio = (Decimal)lectorSQL2.Tables[5].Rows[0].ItemArray[4];
+                            Email email = new Email();
+                            email.EnviarCorreo((String)lectorSQL2.Tables[5].Rows[0].ItemArray[6], DocumentoOrden, DetalleDocumento);
+
+                        }
+                        else
+                            banderaError = 1;
+
                 }
                 catch (Exception ex) { return; }
         }
