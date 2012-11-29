@@ -15,6 +15,7 @@ namespace ModuloComprasVentas
         public FacturasSocio()
         {
             InitializeComponent();
+            //dataGridView1.Rows.RemoveAt(0);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -29,7 +30,20 @@ namespace ModuloComprasVentas
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            limpiarDataGrid();
             obtenerDocumentos(comboBox2.SelectedIndex, comboBox1.SelectedIndex);
+        }
+
+        private void limpiarDataGrid()
+        {
+            try
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows.RemoveAt(i);
+                }
+            }
+            catch (Exception e) { }
         }
 
         private void obtenerDocumentos(int pSocio, int pTipoSocio)
@@ -38,6 +52,7 @@ namespace ModuloComprasVentas
             LogicaInsertarDocumentos.obtenerDocumentos(pSocio, pTipoSocio);
             for (int i = 0; i < LogicaInsertarDocumentos.Documentos.Count; i++)
             {
+                dataGridView1.Rows.Add();
                 nueva = LogicaInsertarDocumentos.Documentos.ElementAt(i);
                 dataGridView1.Rows[i].Cells[0].Value = nueva.Get("numero");
                 dataGridView1.Rows[i].Cells[1].Value = nueva.Get("Fecha1");

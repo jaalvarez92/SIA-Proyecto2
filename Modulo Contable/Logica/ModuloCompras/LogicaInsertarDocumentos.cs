@@ -663,7 +663,7 @@ namespace Logica.ModuloCompras
                     banderaError = 0;
                     while (lectorSQL.Read())
                     {
-                        cuenta = ListaCuentas.Count;
+                        cuenta = _Documentos.Count;
                         _Documentos.Add(new Entity());
                         _Documentos.ElementAt(cuenta).Set("id", lectorSQL.GetInt32(0));
                         _Documentos.ElementAt(cuenta).Set("numero", lectorSQL.GetInt32(1));
