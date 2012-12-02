@@ -7,6 +7,8 @@ using Entidades;
 using Entidades.Documentos;
 using Utilitarios;
 using System.Data.SqlClient;
+using AccesoDatosInventario;
+using System.Data;
 
 namespace Logica.ModuloCompras
 {
@@ -31,6 +33,8 @@ namespace Logica.ModuloCompras
         private static Entities _ListaCuentas;
         private static List<String> _ListaCuentasNombres;
         public static Entity datosActuales;
+        private static Entities _Documentos;
+        
         #endregion
 
         #region propiedades
@@ -190,6 +194,12 @@ namespace Logica.ModuloCompras
         }
 
 
+        public static Entities Documentos
+        {
+            get { return LogicaInsertarDocumentos._Documentos; }
+            set { LogicaInsertarDocumentos._Documentos = value; }
+        }
+
         #endregion
 
         #region metodos
@@ -200,7 +210,7 @@ namespace Logica.ModuloCompras
             int IdSocio = 0;
             if(Socio!=-1)
                 IdSocio = (int)ListaSocios.ElementAt(Socio).Get("id");
-            datosActuales.Set("socio", Socio);
+            datosActuales.Set("socio", IdSocio);
             datosActuales.Set("tipodocumento", TipoDocumento);
             datosActuales.Set("fecha1", Fecha1);
             datosActuales.Set("fecha2", Fecha2);
@@ -321,30 +331,39 @@ namespace Logica.ModuloCompras
 
         private static void verificarCantidadStock(int Bodega, int Articulo, int IdEmpresa)
         {
-            SqlDataReader lectorSQL;
             Documento DocumentoOrden = new Documento();
             DocumentoDetalle DetalleDocumento = new DocumentoDetalle();
                 try
                 {
-                    lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
-                    if (lectorSQL.HasRows)
-                    {
-                        banderaError = 0;
-                        while (lectorSQL.Read())
+                    //lectorSQL = AccesoDatosCV.verificarCantidadArticulo(Bodega, Articulo, IdEmpresa, (int)datosActuales.Get("idmoneda"), (int)datosActuales.Get("socio"));
+                    
+                        DataAccess da = new DataAccess();
+                        DataSet lectorSQL2 = da.ExecuteQuery("SP_VERIFICAR_CANTIDAD_ARTICULO", new List<SqlParameter>()
+                        {
+                            new SqlParameter("@IdBodega",Bodega),
+                            new SqlParameter("@IdArticulo",Articulo),
+                            new SqlParameter("@IdEmpresa",IdEmpresa),
+                            new SqlParameter("@IdMoneda",(int)datosActuales.Get("idmoneda")),
+                            new SqlParameter("@IdSocio",(int)datosActuales.Get("socio"))
+
+                        });
+
+                        if (lectorSQL2.Tables.Count == 6)
                         {
                             DocumentoOrden.TipoDocumento = OrdenCompra;
-                            DetalleDocumento.NumeroDocumento = lectorSQL.GetInt32(0);
-                            DocumentoOrden.Fecha1 = lectorSQL.GetDateTime(1);
-                            DocumentoOrden.TotalAI = lectorSQL.GetDecimal(5);
-                            DetalleDocumento.Descripcion = lectorSQL.GetString(2);
-                            DetalleDocumento.Cantidad = lectorSQL.GetInt32(3);
-                            DetalleDocumento.Precio = lectorSQL.GetDecimal(4);
+                            DetalleDocumento.NumeroDocumento = (int)lectorSQL2.Tables[5].Rows[0].ItemArray[0];
+                            DocumentoOrden.Fecha1 = (DateTime)lectorSQL2.Tables[5].Rows[0].ItemArray[1];
+                            DocumentoOrden.TotalAI = (Decimal)lectorSQL2.Tables[5].Rows[0].ItemArray[5];
+                            DetalleDocumento.Descripcion = (String)lectorSQL2.Tables[5].Rows[0].ItemArray[2];
+                            DetalleDocumento.Cantidad = (int)lectorSQL2.Tables[5].Rows[0].ItemArray[3];
+                            DetalleDocumento.Precio = (Decimal)lectorSQL2.Tables[5].Rows[0].ItemArray[4];
                             Email email = new Email();
-                            email.EnviarCorreo(lectorSQL.GetString(6), DocumentoOrden, DetalleDocumento);
+                            email.EnviarCorreo((String)lectorSQL2.Tables[5].Rows[0].ItemArray[6], DocumentoOrden, DetalleDocumento);
+
                         }
-                    }
-                    else
-                        banderaError = 1;
+                        else
+                            banderaError = 1;
+
                 }
                 catch (Exception ex) { return; }
         }
@@ -623,5 +642,44 @@ namespace Logica.ModuloCompras
         }
 
         #endregion
+
+        public static Boolean convertirOrdenAFactura(int IdDocumento)
+        {
+            return AccesoDatosCV.convertirOrdenAFactura(IdDocumento);
+        }
+
+        public static void obtenerDocumentos(int pIndiceSocio, int p_2)
+        {
+            _Documentos = new Entities();
+            int idSocio = 0;
+            idSocio = (int)_ListaSocios.ElementAt(pIndiceSocio).Get("id");
+            SqlDataReader lectorSQL;
+            int cuenta;
+            try
+            {
+                lectorSQL = AccesoDatosCV.obtenerDocumentos(idSocio);
+                if (lectorSQL.HasRows)
+                {
+                    banderaError = 0;
+                    while (lectorSQL.Read())
+                    {
+                        cuenta = _Documentos.Count;
+                        _Documentos.Add(new Entity());
+                        _Documentos.ElementAt(cuenta).Set("id", lectorSQL.GetInt32(0));
+                        _Documentos.ElementAt(cuenta).Set("numero", lectorSQL.GetInt32(1));
+                        _Documentos.ElementAt(cuenta).Set("Fecha1", lectorSQL.GetDateTime(2));
+                        _Documentos.ElementAt(cuenta).Set("Fecha2", lectorSQL.GetDateTime(3));
+                        _Documentos.ElementAt(cuenta).Set("totalai", lectorSQL.GetDecimal(4));
+                        _Documentos.ElementAt(cuenta).Set("impuestos", lectorSQL.GetDecimal(5));
+                        _Documentos.ElementAt(cuenta).Set("total", lectorSQL.GetDecimal(6));
+                        cuenta++;
+                    }
+                }
+                else
+                    banderaError = 1;
+            }
+            catch (Exception ex) { return; }
+            return;
+        }
     }
 }

@@ -79,9 +79,11 @@ namespace UI
                 generarBalanceComprobacionPDF(dialogoGuardar.FileName);
 
         }
+      
         private void generarEstadoResultadosPDF(string ruta)
-        {           
-            DataSet tablaEstadoResultados = accesoLogica.ObtenerReportes("SP_OBTENER_ESTADORESULTADOS");
+        {
+                        
+            DataSet tablaEstadoResultados = accesoLogica.ObtenerReportes("SP_OBTENER_ESTADORESULTADOS");            
             String fecha = "Al " + DateTime.Today.ToShortDateString();            
             decimal totalIngresos = 0;
             decimal totalGastos = 0;
@@ -106,6 +108,7 @@ namespace UI
 
             insertarTitulo(table,"Ingresos Operativos");
             totalIngresos = insertarCuentas(table,tablaEstadoResultados,"4",3);//4 representa ingresos
+            totalIngresos += insertarCuentas(table, tablaEstadoResultados, "5", 3);
             insertarTotal(table,"\nTotal Ingresos Operativos: ",totalIngresos);
 
             insertarTitulo(table, "Egresos Operativos");
@@ -328,10 +331,13 @@ namespace UI
                 }
 
                 if (idTipoCuenta.Equals(condicion))
-                {                    
+                {
+                                     
                     string nombreCuenta = pDataSet.Tables[0].Rows[i].ItemArray[1].ToString();
                     string saldo = pDataSet.Tables[0].Rows[i].ItemArray[2].ToString();
-                    
+
+                    if (condicion.Equals("5") && nombreCuenta.Equals("Costo de ventas"))
+                        saldo = "-" + saldo;
                     table.DefaultCell.BorderColor = BaseColor.WHITE;
                     table.AddCell(nombreCuenta);
                     table.AddCell(saldo);
@@ -409,7 +415,6 @@ namespace UI
             table.AddCell(celdaTotalIngresosOperativos);
         }
         #endregion de Apoyo
-
         #region Atributos
         private readonly BaseColor MIAZUL = new BaseColor(19, 87, 170);
         private string nombreEmpresa;

@@ -362,15 +362,20 @@ namespace AccesoDatos.ModuloCompras
                 param.Value = NumDoc;
                 param = execproc.Parameters.Add("@pReferencia2", SqlDbType.VarChar, 100);
                 param.Value = "";
-                param = execproc.Parameters.Add("@ValorRetorno", SqlDbType.Int);
-                param.Direction = ParameterDirection.ReturnValue;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
                 execproc.ExecuteReader();
-                valorRetorno = (int)execproc.Parameters["@ValorRetorno"].Value;
+                execproc.Connection.Close();
+                return salvaTandas2();
             }
-            catch (Exception sqle) { valorRetorno = -1; }
-            return valorRetorno;
+            catch (Exception sqle) { return -1; }
+        }
+
+        private static int salvaTandas2()
+        {
+            AccesoDatosInventario.DataAccess acceso = new DataAccess();
+            DataSet data = acceso.ExecuteQuery("SP_SALVADA", new List<SqlParameter>());
+            return int.Parse(data.Tables[0].Rows[0][0].ToString());
         }
 
 
@@ -544,13 +549,48 @@ namespace AccesoDatos.ModuloCompras
         #endregion
 
 
-        public static SqlDataReader verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int IdMoneda, int IdSocio)
+        public static DataRow verificarCantidadArticulo(int Bodega, int Articulo, int IdEmpresa, int IdMoneda, int IdSocio)
         {
-            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
-            SqlDataReader lectorSQL;
+/*
+            AccesoDatosInventario.DataAccess acceso = new DataAccess();
+            DataSet data = acceso.ExecuteQuery("SP_SALVADA", new List<SqlParameter>() {
+                new SqlParameter("@IdBodega",Bodega),
+                new SqlParameter("@IdArticulo",Articulo),
+                new SqlParameter("@IdEmpresa",IdEmpresa),
+                new SqlParameter("@IdMoneda",IdMoneda),
+                new SqlParameter("@IdSocio",IdSocio)
+
+            });
+            return data.Tables[data.Tables.Count -1].Rows[0];*/
+
+            DataTable db = new DataTable();
+
             try
             {
-                SqlCommand execproc = new SqlCommand("SP_VERIFICAR_CANTIDAD_ARTICULO", DataConnection);
+                SqlConnection conn = new SqlConnection(AccesoDatos._Connection);
+                conn.Open();
+                SqlCommand Query = new SqlCommand("SP_SALVADA", conn);
+                SqlParameter param = Query.Parameters.Add("@IdBodega", SqlDbType.Int);
+                param.Value = Bodega;
+                param = Query.Parameters.Add("@IdArticulo", SqlDbType.Int);
+                param.Value = Articulo;
+                param = Query.Parameters.Add("@IdEmpresa", SqlDbType.Int);
+                param.Value = IdEmpresa;
+                param = Query.Parameters.Add("@IdMoneda", SqlDbType.Int);
+                param.Value = IdMoneda;
+                param = Query.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = IdSocio;
+                Query.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter SqlDa = new SqlDataAdapter(Query);
+                SqlDa.Fill(db);
+                conn.Close();
+
+            }
+            catch { db = null; }
+
+            return db.Rows[db.Rows.Count-1];
+
+              /*  SqlCommand execproc = new SqlCommand("SP_VERIFICAR_CANTIDAD_ARTICULO", DataConnection);
                 SqlParameter param = execproc.Parameters.Add("@IdBodega", SqlDbType.Int);
                 param.Value = Bodega;
                 param = execproc.Parameters.Add("@IdArticulo", SqlDbType.Int);
@@ -563,11 +603,40 @@ namespace AccesoDatos.ModuloCompras
                 param.Value = IdSocio;
                 execproc.CommandType = CommandType.StoredProcedure;
                 execproc.Connection.Open();
-                lectorSQL = execproc.ExecuteReader();
+                lectorSQL = execproc.ExecuteReader();*/
+        }
+
+        public static Boolean convertirOrdenAFactura(int IdDocumento)
+        {
+            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            try
+            {
+                SqlCommand execproc = new SqlCommand("SP_CONVERTIR_ORDEN_FACTURA", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdDocumento", SqlDbType.Int);
+                param.Value = IdDocumento;
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                execproc.ExecuteReader();
             }
 
-            catch (Exception sqle) { lectorSQL = null; }
-            return lectorSQL;
+            catch (Exception sqle) { return false; }
+            return true;
+        }
+
+        public static SqlDataReader obtenerDocumentos(int idSocio)
+        {
+            SqlConnection DataConnection = new SqlConnection(AccesoDatos._Connection);
+            try
+            {
+                SqlCommand execproc = new SqlCommand("SP_OBTENER_DOCUMENTOS_SIN_PAGAR", DataConnection);
+                SqlParameter param = execproc.Parameters.Add("@IdSocio", SqlDbType.Int);
+                param.Value = idSocio;
+                execproc.CommandType = CommandType.StoredProcedure;
+                execproc.Connection.Open();
+                return execproc.ExecuteReader();
+            }
+
+            catch (Exception sqle) { return null; }
         }
     }
 }
